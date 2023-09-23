@@ -12,6 +12,7 @@
   <Button {title} kind="primary" {icon} loading={true}/>
   <Button {title} kind="primary" />
   <Button {title} kind="secondary" {icon} />
+  <Button {title} kind="secondary" {icon} loading={true}/>
   <Button {title} kind="secondary" />
   <br /><br />
   <Button {title} kind="primary" {icon} size="small" />

@@ -20,6 +20,7 @@
   class:secondary={kind === 'secondary'}
   class:large={size === 'large'}
   class:small={size === 'small'}
+  disabled={loading}
 >
   {#if loading}
     <div class="icon animate">{@html LoadingSVG}</div>
@@ -85,7 +86,7 @@
         background-color: var(--button-primary-hover-BackgroundColor);
       }
 
-      &:active {
+      &:active, &:disabled {
         background-color: var(--button-primary-active-BackgroundColor);
       }
     }
@@ -103,7 +104,7 @@
         background-color: var(--button-secondary-hover-BackgroundColor);
       }
 
-      &:active {
+      &:active, &:disabled {
         background-color: var(--button-secondary-active-BackgroundColor);
       }
     }
