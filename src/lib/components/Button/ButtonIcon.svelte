@@ -11,6 +11,7 @@
   export let kind: 'primary' | 'secondary' = 'secondary'
   export let size: 'large' | 'small' = 'large'
   export let icon: IconId
+  export let loading: boolean = false
 </script>
 
-<ButtonBase {kind} {size} {icon} />
+<ButtonBase {kind} {size} {icon} {loading}/>

@@ -17,4 +17,15 @@
 
   --border-radius-small: 0.25rem;
   --border-radius-medium: 0.5rem;
+
+  /** Animations **/
+
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
 }

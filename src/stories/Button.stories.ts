@@ -35,6 +35,15 @@ export const LargeIconPrimary: Story = {
   }
 }
 
+export const LargeIconPrimaryLoading: Story = {
+  args: {
+    icon,
+    kind: 'primary',
+    title: 'Button',
+    loading: true
+  }
+}
+
 export const LargePrimary: Story = {
   args: {
     kind: 'primary',

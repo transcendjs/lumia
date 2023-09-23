@@ -9,6 +9,7 @@
 
 <Theme>
   <Button {title} kind="primary" {icon} />
+  <Button {title} kind="primary" {icon} loading={true}/>
   <Button {title} kind="primary" />
   <Button {title} kind="secondary" {icon} />
   <Button {title} kind="secondary" />

@@ -6,11 +6,13 @@
 
   import type { IconId } from '$lib/icons.js'
   import Icon from '$lib/components/Icon/Icon.svelte'
+  import LoadingSVG from '$lib/icons/loading.svg?raw'
 
   export let title: string | undefined = undefined
   export let icon: IconId | undefined = undefined
   export let kind: 'primary' | 'secondary'
   export let size: 'large' | 'small'
+  export let loading: boolean
 </script>
 
 <button
@@ -19,7 +21,11 @@
   class:large={size === 'large'}
   class:small={size === 'small'}
 >
-  {#if icon}<div class="icon"><Icon {icon} /></div>{/if}
+  {#if loading}
+    <div class="icon animate">{@html LoadingSVG}</div>
+  {:else}
+    {#if icon}<div class="icon"><Icon {icon} /></div>{/if}
+  {/if}
   {#if title}{title}{/if}
 </button>
 
@@ -42,6 +48,12 @@
     .icon {
       width: 1rem;
       height: 1rem;
+    }
+
+    .icon.animate {
+      animation-name: rotate;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;    
     }
 
     &.large {
