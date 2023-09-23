@@ -22,6 +22,8 @@
 
 button {
   font: inherit;
+  font-weight: 500;
+  
   display: inline-flex;
   vertical-align: middle;
 
