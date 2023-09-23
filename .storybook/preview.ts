@@ -1,4 +1,5 @@
-import type { Preview } from '@storybook/svelte';
+import type { Preview } from '@storybook/svelte'
+import ThemeDecorator from './ThemeDecorator.svelte'
 
 const preview: Preview = {
 	parameters: {
@@ -8,8 +9,9 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/
 			}
-		}
-	}
-};
+		},
+	},
+	decorators: [(_, story) => ({ Component: ThemeDecorator, props: { context: story.globals } })]
+}
 
-export default preview;
+export default preview

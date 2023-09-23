@@ -1,48 +1,89 @@
-import type { Meta, StoryObj } from '@storybook/svelte';
+import type { Meta, StoryObj } from '@storybook/svelte'
 
-import Button from './Button.svelte';
+import Button from '$lib/components/Button/Button.svelte'
 
-// More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const meta = {
-  title: 'Example/Button',
+  title: 'Componens/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'large'],
     },
+    kind: {
+      control: { type: 'select'},
+      options: ['primary', 'secondary'],
+    },
+    icon: {
+      control: { type: 'text'},
+    }
   },
 } satisfies Meta<Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-// More on writing stories with args: https://storybook.js.org/docs/svelte/writing-stories/args
-export const Primary: Story = {
+const icon = 'default' as string & { __tag: 'icon-id' }
+
+export const LargeIconPrimary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    icon,
+    kind: 'primary',
+    title: 'Button',
   },
 };
 
-export const Secondary: Story = {
+export const LargePrimary: Story = {
   args: {
-    label: 'Button',
+    kind: 'primary',
+    title: 'Button',
   },
-};
+}
 
-export const Large: Story = {
+export const LargeIconSecondary: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    icon,
+    title: 'Button',
   },
-};
+}
 
-export const Small: Story = {
+export const LargeSecondary: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    title: 'Button',
   },
-};
+}
+
+// S M A L L
+
+export const SmallIconPrimary: Story = {
+  args: {
+    icon,
+    kind: 'primary',
+    title: 'Button',
+    size: 'small'
+  },
+}
+
+export const SmallPrimary: Story = {
+  args: {
+    kind: 'primary',
+    title: 'Button',
+    size: 'small'
+  },
+}
+
+export const SmallIconSecondary: Story = {
+  args: {
+    icon,
+    title: 'Button',
+    size: 'small'
+  },
+}
+
+export const SmallSecondary: Story = {
+  args: {
+    title: 'Button',
+    size: 'small'
+  },
+}

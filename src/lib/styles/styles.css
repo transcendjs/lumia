@@ -1,0 +1,14 @@
+:root {
+
+  /** Space & Dimensions **/
+
+  --spacing-1: 0.5rem;
+  --spacing-2: 1rem;
+
+  --spacing-6: 3rem;
+
+  /** Border Radius **/
+
+  --border-radius-small: 0.25rem;
+  --border-radius-medium: 0.5rem;
+}

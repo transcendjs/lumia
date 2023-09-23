@@ -1,11 +1,36 @@
 <script lang="ts">
 
-import Button from '$lib/Button/Button.svelte'
+import Theme from '$lib/components/Theme/Theme.svelte'
+import Button from '$lib/components/Button/Button.svelte'
+import type { IconId } from '$lib/icons.js'
+
+const icon = 'default' as IconId
+const title = 'Hi there'
 
 </script>
 
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<Theme>
+  <Button {title} kind='primary' {icon}/>
+  <Button {title} kind='primary'/>
+  <Button {title} kind='secondary' {icon}/>
+  <Button {title} kind='secondary'/>
+  <br/><br/>
+  <Button {title} kind='primary' {icon} size="small"/>
+  <Button {title} kind='primary' size="small"/>
+  <Button {title} kind='secondary' {icon} size="small"/>
+  <Button {title} kind='secondary' size="small"/>
+</Theme>
 
-<Button title='Hi, there!' kind='primary'/>
+<br/><br/>
+
+<Theme theme="dark">
+  <Button {title} kind='primary' {icon}/>
+  <Button {title} kind='primary'/>
+  <Button {title} kind='secondary' {icon}/>
+  <Button {title} kind='secondary'/>
+  <br/><br/>
+  <Button {title} kind='primary' {icon} size="small"/>
+  <Button {title} kind='primary' size="small"/>
+  <Button {title} kind='secondary' {icon} size="small"/>
+  <Button {title} kind='secondary' size="small"/>
+</Theme>
