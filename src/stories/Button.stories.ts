@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
+import type { IconId } from '$lib/icons.js'
 import Button from '$lib/components/Button/Button.svelte'
 
 const meta = {
@@ -24,7 +25,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const icon = 'default' as string & { __tag: 'icon-id' }
+const icon = 'default' as IconId
 
 export const LargeIconPrimary: Story = {
   args: {
