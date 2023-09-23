@@ -1,13 +1,16 @@
 //
 // © 2023 Hardcore Engineering, Inc. All Rights Reserved.
 // Licensed under the Eclipse Public License v2.0 (SPDX: EPL-2.0).
-// 
+//
 
 import DefaultIcon from './default-icon.svg?raw'
 
 export type IconId = string & { __tag: 'icon-id' }
 
-export enum IconContentLocation { Url, Raw }
+export enum IconContentLocation {
+  Url,
+  Raw
+}
 
 export type IconContent = {
   location: IconContentLocation
@@ -20,4 +23,6 @@ let __resolver: IconResolver = () => ({ location: IconContentLocation.Raw, value
 
 export const resolveIcon = (icon: IconId) => __resolver(icon)
 
-export function setIconResolver(resolver: IconResolver) { __resolver = resolver }
+export function setIconResolver(resolver: IconResolver) {
+  __resolver = resolver
+}

@@ -9,19 +9,19 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['small', 'large'],
+      options: ['small', 'large']
     },
     kind: {
-      control: { type: 'select'},
-      options: ['primary', 'secondary'],
+      control: { type: 'select' },
+      options: ['primary', 'secondary']
     },
     icon: {
-      control: { type: 'text'},
+      control: { type: 'text' }
     }
-  },
-} satisfies Meta<Button>;
+  }
+} satisfies Meta<Button>
 
-export default meta;
+export default meta
 type Story = StoryObj<typeof meta>
 
 const icon = 'default' as string & { __tag: 'icon-id' }
@@ -30,28 +30,28 @@ export const LargeIconPrimary: Story = {
   args: {
     icon,
     kind: 'primary',
-    title: 'Button',
-  },
-};
+    title: 'Button'
+  }
+}
 
 export const LargePrimary: Story = {
   args: {
     kind: 'primary',
-    title: 'Button',
-  },
+    title: 'Button'
+  }
 }
 
 export const LargeIconSecondary: Story = {
   args: {
     icon,
-    title: 'Button',
-  },
+    title: 'Button'
+  }
 }
 
 export const LargeSecondary: Story = {
   args: {
-    title: 'Button',
-  },
+    title: 'Button'
+  }
 }
 
 // S M A L L
@@ -62,7 +62,7 @@ export const SmallIconPrimary: Story = {
     kind: 'primary',
     title: 'Button',
     size: 'small'
-  },
+  }
 }
 
 export const SmallPrimary: Story = {
@@ -70,7 +70,7 @@ export const SmallPrimary: Story = {
     kind: 'primary',
     title: 'Button',
     size: 'small'
-  },
+  }
 }
 
 export const SmallIconSecondary: Story = {
@@ -78,12 +78,12 @@ export const SmallIconSecondary: Story = {
     icon,
     title: 'Button',
     size: 'small'
-  },
+  }
 }
 
 export const SmallSecondary: Story = {
   args: {
     title: 'Button',
     size: 'small'
-  },
+  }
 }
