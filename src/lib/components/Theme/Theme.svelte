@@ -10,7 +10,7 @@
   <slot/>
 </div>
 
-<style lang="scss">
+<style lang="css">
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
@@ -30,34 +30,33 @@ div {
   --button-primary-BorderColor: #D1D5DE1A;
   --button-primary-LabelColor: #FFFFFF;
 
-  &.light {
-    --background-color-bg-surface-01: #F0F2F5;
-  
-    --button-secondary-BackgroundColor: #1725470D;
-    --button-secondary-BorderColor: #1725471A;
-    --button-secondary-hover-BackgroundColor: #1725471A;
-    --button-secondary-active-BackgroundColor: #17254726;
-
-    --button-secondary-LabelColor: #0F121A;
-
-    --global-focus-BorderColor: #224FCB;
-  }
-
-  &.dark {
-    --background-color-bg-surface-01: #1B2230;
-
-    --button-secondary-BackgroundColor: #D1D5DE0D;
-    --button-secondary-BorderColor: #D1D5DE1A;
-    --button-secondary-hover-BackgroundColor: #D1D5DE1A;  
-    --button-secondary-active-BackgroundColor: #D1D5DE26;
-
-    --button-secondary-LabelColor: #FFFFFF;
-
-    --global-focus-BorderColor: #3869E5;
-  }
-
   background-color: var(--background-color-bg-surface-01);
 }
 
+div.light {
+  --background-color-bg-surface-01: #F0F2F5;
+
+  --button-secondary-BackgroundColor: #1725470D;
+  --button-secondary-BorderColor: #1725471A;
+  --button-secondary-hover-BackgroundColor: #1725471A;
+  --button-secondary-active-BackgroundColor: #17254726;
+
+  --button-secondary-LabelColor: #0F121A;
+
+  --global-focus-BorderColor: #224FCB;
+}
+
+div.dark {
+  --background-color-bg-surface-01: #1B2230;
+
+  --button-secondary-BackgroundColor: #D1D5DE0D;
+  --button-secondary-BorderColor: #D1D5DE1A;
+  --button-secondary-hover-BackgroundColor: #D1D5DE1A;  
+  --button-secondary-active-BackgroundColor: #D1D5DE26;
+
+  --button-secondary-LabelColor: #FFFFFF;
+
+  --global-focus-BorderColor: #3869E5;
+}
 
 </style>
