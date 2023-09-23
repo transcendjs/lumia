@@ -13,9 +13,7 @@
   <slot />
 </div>
 
-<style lang="css">
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-
+<style>
   div {
     /** Typography **/
 
