@@ -15,4 +15,4 @@
   export let loading: boolean = false
 </script>
 
-<ButtonBase {kind} {size} {icon} {disabled} {loading} iconOnly />
+<ButtonBase type={'type-button-icon'} {kind} {size} {icon} {disabled} {loading} />
