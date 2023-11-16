@@ -22,6 +22,7 @@
   disabled={loading || disabled}
 >
   {#if loading}
+    <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
   {:else}
     {#if icon}<div class="icon"><Icon {icon} /></div>{/if}

@@ -7,77 +7,93 @@
   const title = 'Hi there'
 </script>
 
-<Theme>
-  <div class="row">
-    <Button {title} kind="primary" {icon} />
-    <Button {title} kind="primary" />
-    <Button {title} kind="primary" {icon} loading={true} />
-    <Button {title} kind="primary" loading={true} />
-    <Button {title} kind="primary" {icon} disabled />
-    <Button {title} kind="primary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="secondary" {icon} />
-    <Button {title} kind="secondary" />
-    <Button {title} kind="secondary" {icon} loading={true} />
-    <Button {title} kind="secondary" loading={true} />
-    <Button {title} kind="secondary" {icon} disabled />
-    <Button {title} kind="secondary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="tertiary" {icon} />
-    <Button {title} kind="tertiary" />
-    <Button {title} kind="tertiary" {icon} loading={true} />
-    <Button {title} kind="tertiary" loading={true} />
-    <Button {title} kind="tertiary" {icon} disabled />
-    <Button {title} kind="tertiary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="negative" {icon} />
-    <Button {title} kind="negative" />
-    <Button {title} kind="negative" {icon} loading={true} />
-    <Button {title} kind="negative" loading={true} />
-    <Button {title} kind="negative" {icon} disabled />
-    <Button {title} kind="negative" disabled />
-  </div>
-</Theme>
+<div class="themes">
+  <Theme>
+    <div class="column">
+      <div class="row">
+        <Button {title} kind={'primary'} {icon} />
+        <Button {title} kind={'primary'} />
+        <Button {title} kind={'primary'} {icon} loading={true} />
+        <Button {title} kind={'primary'} loading={true} />
+        <Button {title} kind={'primary'} {icon} disabled />
+        <Button {title} kind={'primary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'secondary'} {icon} />
+        <Button {title} kind={'secondary'} />
+        <Button {title} kind={'secondary'} {icon} loading={true} />
+        <Button {title} kind={'secondary'} loading={true} />
+        <Button {title} kind={'secondary'} {icon} disabled />
+        <Button {title} kind={'secondary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'tertiary'} {icon} />
+        <Button {title} kind={'tertiary'} />
+        <Button {title} kind={'tertiary'} {icon} loading={true} />
+        <Button {title} kind={'tertiary'} loading={true} />
+        <Button {title} kind={'tertiary'} {icon} disabled />
+        <Button {title} kind={'tertiary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'negative'} {icon} />
+        <Button {title} kind={'negative'} />
+        <Button {title} kind={'negative'} {icon} loading={true} />
+        <Button {title} kind={'negative'} loading={true} />
+        <Button {title} kind={'negative'} {icon} disabled />
+        <Button {title} kind={'negative'} disabled />
+      </div>
+    </div>
+  </Theme>
 
-<Theme theme="dark">
-  <div class="row">
-    <Button {title} kind="primary" {icon} />
-    <Button {title} kind="primary" />
-    <Button {title} kind="primary" {icon} loading={true} />
-    <Button {title} kind="primary" loading={true} />
-    <Button {title} kind="primary" {icon} disabled />
-    <Button {title} kind="primary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="secondary" {icon} />
-    <Button {title} kind="secondary" />
-    <Button {title} kind="secondary" {icon} loading={true} />
-    <Button {title} kind="secondary" loading={true} />
-    <Button {title} kind="secondary" {icon} disabled />
-    <Button {title} kind="secondary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="tertiary" {icon} />
-    <Button {title} kind="tertiary" />
-    <Button {title} kind="tertiary" {icon} loading={true} />
-    <Button {title} kind="tertiary" loading={true} />
-    <Button {title} kind="tertiary" {icon} disabled />
-    <Button {title} kind="tertiary" disabled />
-  </div>
-  <div class="row">
-    <Button {title} kind="negative" {icon} />
-    <Button {title} kind="negative" />
-    <Button {title} kind="negative" {icon} loading={true} />
-    <Button {title} kind="negative" loading={true} />
-    <Button {title} kind="negative" {icon} disabled />
-    <Button {title} kind="negative" disabled />
-  </div>
-</Theme>
+  <Theme theme="dark">
+    <div class="column">
+      <div class="row">
+        <Button {title} kind={'primary'} {icon} />
+        <Button {title} kind={'primary'} />
+        <Button {title} kind={'primary'} {icon} loading={true} />
+        <Button {title} kind={'primary'} loading={true} />
+        <Button {title} kind={'primary'} {icon} disabled />
+        <Button {title} kind={'primary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'secondary'} {icon} />
+        <Button {title} kind={'secondary'} />
+        <Button {title} kind={'secondary'} {icon} loading={true} />
+        <Button {title} kind={'secondary'} loading={true} />
+        <Button {title} kind={'secondary'} {icon} disabled />
+        <Button {title} kind={'secondary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'tertiary'} {icon} />
+        <Button {title} kind={'tertiary'} />
+        <Button {title} kind={'tertiary'} {icon} loading={true} />
+        <Button {title} kind={'tertiary'} loading={true} />
+        <Button {title} kind={'tertiary'} {icon} disabled />
+        <Button {title} kind={'tertiary'} disabled />
+      </div>
+      <div class="row">
+        <Button {title} kind={'negative'} {icon} />
+        <Button {title} kind={'negative'} />
+        <Button {title} kind={'negative'} {icon} loading={true} />
+        <Button {title} kind={'negative'} loading={true} />
+        <Button {title} kind={'negative'} {icon} disabled />
+        <Button {title} kind={'negative'} disabled />
+      </div>
+    </div>
+  </Theme>
+</div>
 
 <style>
+  .themes {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .row {
     display: flex;
     align-items: center;
