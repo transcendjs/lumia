@@ -5,100 +5,64 @@
 
   const icon = 'default' as IconId
   const title = 'Hi there'
+  const themes: Array<'light' | 'dark'> = ['light', 'dark']
+  const kinds: Array<'primary' | 'secondary' | 'tertiary' | 'negative'> = [
+    'primary',
+    'secondary',
+    'tertiary',
+    'negative'
+  ]
+  const sizes: Array<'large' | 'medium' | 'small'> = ['large', 'medium', 'small']
 </script>
 
 <div class="themes">
-  <Theme>
-    <div class="column">
-      <div class="row">
-        <Button {title} kind={'primary'} {icon} />
-        <Button {title} kind={'primary'} />
-        <Button {title} kind={'primary'} {icon} loading={true} />
-        <Button {title} kind={'primary'} loading={true} />
-        <Button {title} kind={'primary'} {icon} disabled />
-        <Button {title} kind={'primary'} disabled />
+  {#each themes as theme}
+    <Theme {theme}>
+      <div class="column">
+        {#each sizes as size}
+          <div class="row bold">Size: {size}</div>
+          {#each kinds as kind}
+            <div class="row">
+              <Button {title} {kind} {size} {icon} />
+              <Button {title} {kind} {size} />
+              <Button {title} {kind} {size} {icon} loading={true} />
+              <Button {title} {kind} {size} loading={true} />
+              <Button {title} {kind} {size} {icon} disabled />
+              <Button {title} {kind} {size} disabled />
+            </div>
+          {/each}
+        {/each}
       </div>
-      <div class="row">
-        <Button {title} kind={'secondary'} {icon} />
-        <Button {title} kind={'secondary'} />
-        <Button {title} kind={'secondary'} {icon} loading={true} />
-        <Button {title} kind={'secondary'} loading={true} />
-        <Button {title} kind={'secondary'} {icon} disabled />
-        <Button {title} kind={'secondary'} disabled />
-      </div>
-      <div class="row">
-        <Button {title} kind={'tertiary'} {icon} />
-        <Button {title} kind={'tertiary'} />
-        <Button {title} kind={'tertiary'} {icon} loading={true} />
-        <Button {title} kind={'tertiary'} loading={true} />
-        <Button {title} kind={'tertiary'} {icon} disabled />
-        <Button {title} kind={'tertiary'} disabled />
-      </div>
-      <div class="row">
-        <Button {title} kind={'negative'} {icon} />
-        <Button {title} kind={'negative'} />
-        <Button {title} kind={'negative'} {icon} loading={true} />
-        <Button {title} kind={'negative'} loading={true} />
-        <Button {title} kind={'negative'} {icon} disabled />
-        <Button {title} kind={'negative'} disabled />
-      </div>
-    </div>
-  </Theme>
-
-  <Theme theme="dark">
-    <div class="column">
-      <div class="row">
-        <Button {title} kind={'primary'} {icon} />
-        <Button {title} kind={'primary'} />
-        <Button {title} kind={'primary'} {icon} loading={true} />
-        <Button {title} kind={'primary'} loading={true} />
-        <Button {title} kind={'primary'} {icon} disabled />
-        <Button {title} kind={'primary'} disabled />
-      </div>
-      <div class="row">
-        <Button {title} kind={'secondary'} {icon} />
-        <Button {title} kind={'secondary'} />
-        <Button {title} kind={'secondary'} {icon} loading={true} />
-        <Button {title} kind={'secondary'} loading={true} />
-        <Button {title} kind={'secondary'} {icon} disabled />
-        <Button {title} kind={'secondary'} disabled />
-      </div>
-      <div class="row">
-        <Button {title} kind={'tertiary'} {icon} />
-        <Button {title} kind={'tertiary'} />
-        <Button {title} kind={'tertiary'} {icon} loading={true} />
-        <Button {title} kind={'tertiary'} loading={true} />
-        <Button {title} kind={'tertiary'} {icon} disabled />
-        <Button {title} kind={'tertiary'} disabled />
-      </div>
-      <div class="row">
-        <Button {title} kind={'negative'} {icon} />
-        <Button {title} kind={'negative'} />
-        <Button {title} kind={'negative'} {icon} loading={true} />
-        <Button {title} kind={'negative'} loading={true} />
-        <Button {title} kind={'negative'} {icon} disabled />
-        <Button {title} kind={'negative'} disabled />
-      </div>
-    </div>
-  </Theme>
+    </Theme>
+  {/each}
 </div>
 
-<style>
+<style lang="scss">
   .themes {
     display: flex;
     width: 100%;
-    gap: 3rem;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
     gap: 1rem;
-  }
-  .row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      &:not(.bold) {
+        gap: 0.5rem;
+      }
+      &.bold {
+        font-weight: 500;
+        font-size: 2rem;
+        color: var(--button-subtle-LabelColor);
+      }
+    }
   }
   .row + .row {
     margin-top: 1rem;
