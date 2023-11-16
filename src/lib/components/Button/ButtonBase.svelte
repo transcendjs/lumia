@@ -16,17 +16,11 @@
   export let loading: boolean = false
 </script>
 
-<button
-  class="{kind} {size}"
-  class:loading
-  disabled={loading || disabled}
->
+<button class="{kind} {size}" class:loading disabled={loading || disabled}>
   {#if loading}
     <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
-  {:else}
-    {#if icon}<div class="icon"><Icon {icon} /></div>{/if}
-  {/if}
+  {:else if icon}<div class="icon"><Icon {icon} /></div>{/if}
   {#if title}<span>{title}</span>{/if}
 </button>
 
@@ -45,7 +39,9 @@
       width: var(--spacing-2_5);
       height: var(--spacing-2_5);
 
-      &.animate { animation: rotate 2s linear infinite; }
+      &.animate {
+        animation: rotate 2s linear infinite;
+      }
     }
 
     &:not(.tertiary) {
@@ -78,20 +74,32 @@
       border-color: var(--button-primary-BorderColor);
       background-color: var(--button-primary-BackgroundColor);
 
-      &:hover { background-color: var(--button-primary-hover-BackgroundColor); }
+      &:hover {
+        background-color: var(--button-primary-hover-BackgroundColor);
+      }
       &:active,
-      &.loading { background-color: var(--button-primary-active-BackgroundColor); }
-      &.loading span { color: var(--button-primary-loading-LabelColor); }
+      &.loading {
+        background-color: var(--button-primary-active-BackgroundColor);
+      }
+      &.loading span {
+        color: var(--button-primary-loading-LabelColor);
+      }
     }
 
     &.secondary {
       border-color: var(--button-secondary-BorderColor);
       background-color: var(--button-secondary-BackgroundColor);
 
-      &:hover { background-color: var(--button-secondary-hover-BackgroundColor); }
+      &:hover {
+        background-color: var(--button-secondary-hover-BackgroundColor);
+      }
       &:active,
-      &.loading { background-color: var(--button-secondary-active-BackgroundColor); }
-      &.loading span { color: var(--button-disabled-LabelColor); }
+      &.loading {
+        background-color: var(--button-secondary-active-BackgroundColor);
+      }
+      &.loading span {
+        color: var(--button-disabled-LabelColor);
+      }
     }
 
     &.tertiary {
@@ -99,40 +107,70 @@
       background-color: transparent;
 
       &:not(:disabled) {
-        &:hover { background-color: var(--button-tertiary-hover-BackgroundColor); }
-        &:active { background-color: var(--button-tertiary-active-BackgroundColor); }
+        &:hover {
+          background-color: var(--button-tertiary-hover-BackgroundColor);
+        }
+        &:active {
+          background-color: var(--button-tertiary-active-BackgroundColor);
+        }
       }
-      &.loading { background-color: var(--button-tertiary-active-BackgroundColor); }
-      &.loading span { color: var(--button-disabled-LabelColor); }
+      &.loading {
+        background-color: var(--button-tertiary-active-BackgroundColor);
+      }
+      &.loading span {
+        color: var(--button-disabled-LabelColor);
+      }
     }
 
     &.negative {
       border-color: var(--button-negative-BorderColor);
       background-color: var(--button-negative-BackgroundColor);
 
-      &:hover { background-color: var(--button-negative-hover-BackgroundColor); }
+      &:hover {
+        background-color: var(--button-negative-hover-BackgroundColor);
+      }
       &:active,
-      &.loading { background-color: var(--button-negative-active-BackgroundColor); }
-      &.loading span { color: var(--button-negative-loading-LabelColor); }
+      &.loading {
+        background-color: var(--button-negative-active-BackgroundColor);
+      }
+      &.loading span {
+        color: var(--button-negative-loading-LabelColor);
+      }
     }
 
     &:not(:disabled) {
-      &.primary, &.negative {
-        .icon { fill: var(--button-accent-IconColor); }
-        span { color: var(--button-accent-LabelColor); }
+      &.primary,
+      &.negative {
+        .icon {
+          fill: var(--button-accent-IconColor);
+        }
+        span {
+          color: var(--button-accent-LabelColor);
+        }
       }
-      &.secondary, &.tertiary {
-        .icon { fill: var(--button-subtle-IconColor); }
-        span { color: var(--button-subtle-LabelColor); }
+      &.secondary,
+      &.tertiary {
+        .icon {
+          fill: var(--button-subtle-IconColor);
+        }
+        span {
+          color: var(--button-subtle-LabelColor);
+        }
       }
     }
     &:disabled:not(.loading) {
       border: none;
       cursor: not-allowed;
-      
-      &:not(.tertiary) { background-color: var(--button-disabled-BackgroundColor); }
-      .icon { fill: var(--button-disabled-IconColor); }
-      span { color: var(--button-disabled-LabelColor); }
+
+      &:not(.tertiary) {
+        background-color: var(--button-disabled-BackgroundColor);
+      }
+      .icon {
+        fill: var(--button-disabled-IconColor);
+      }
+      span {
+        color: var(--button-disabled-LabelColor);
+      }
     }
   }
 

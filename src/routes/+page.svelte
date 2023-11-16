@@ -100,5 +100,7 @@
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  .row + .row { margin-top: 1rem; }
+  .row + .row {
+    margin-top: 1rem;
+  }
 </style>

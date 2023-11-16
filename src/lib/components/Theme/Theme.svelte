@@ -24,22 +24,22 @@
     line-height: 1rem;
 
     --button-accent-LabelColor: #fff;
-    --button-disabled-LabelColor: #8B97AD;
+    --button-disabled-LabelColor: #8b97ad;
     --button-accent-IconColor: #fff;
-    --button-disabled-IconColor: #8B97AD;
+    --button-disabled-IconColor: #8b97ad;
 
-    --button-primary-BackgroundColor: #3364E2;
-    --button-primary-BorderColor: #D1D5DE1A;
-    --button-primary-hover-BackgroundColor: #6191FE;
-    --button-primary-active-BackgroundColor: #2553CF;
-    --button-primary-loading-LabelColor: #6191FE;
+    --button-primary-BackgroundColor: #3364e2;
+    --button-primary-BorderColor: #d1d5de1a;
+    --button-primary-hover-BackgroundColor: #6191fe;
+    --button-primary-active-BackgroundColor: #2553cf;
+    --button-primary-loading-LabelColor: #6191fe;
 
-    --button-negative-loading-LabelColor: #FF9187;
-    --button-negative-BorderColor: #D1D5DE26;
-    --button-negative-hover-BackgroundColor: #E34748;
-    --button-negative-active-BackgroundColor: #C42A32;
+    --button-negative-loading-LabelColor: #ff9187;
+    --button-negative-BorderColor: #d1d5de26;
+    --button-negative-hover-BackgroundColor: #e34748;
+    --button-negative-active-BackgroundColor: #c42a32;
 
-    --global-focus-BorderColor: #3364E2;
+    --global-focus-BorderColor: #3364e2;
 
     background-color: var(--background-color-bg-surface-01);
   }
@@ -49,16 +49,16 @@
 
     --button-subtle-LabelColor: #000;
     --button-subtle-IconColor: #000;
-    --button-disabled-BackgroundColor: #1725470D;
-    --button-primary-loading-LabelColor: #95BAFF;
+    --button-disabled-BackgroundColor: #1725470d;
+    --button-primary-loading-LabelColor: #95baff;
 
-    --button-secondary-BackgroundColor: #1725470D;
-    --button-secondary-BorderColor: #1725471A;
-    --button-secondary-hover-BackgroundColor: #1725471A;
+    --button-secondary-BackgroundColor: #1725470d;
+    --button-secondary-BorderColor: #1725471a;
+    --button-secondary-hover-BackgroundColor: #1725471a;
     --button-secondary-active-BackgroundColor: #17254726;
 
-    --button-negative-BackgroundColor: #EA4C4C;
-    --button-tertiary-hover-BackgroundColor: #1725471A;
+    --button-negative-BackgroundColor: #ea4c4c;
+    --button-tertiary-hover-BackgroundColor: #1725471a;
     --button-tertiary-active-BackgroundColor: #17254726;
   }
 
@@ -67,16 +67,16 @@
 
     --button-subtle-LabelColor: #fff;
     --button-subtle-IconColor: #fff;
-    --button-disabled-BackgroundColor: #D1D5DE0D;
-    --button-primary-loading-LabelColor: #6191FE;
+    --button-disabled-BackgroundColor: #d1d5de0d;
+    --button-primary-loading-LabelColor: #6191fe;
 
-    --button-secondary-BackgroundColor: #D1D5DE0D;
-    --button-secondary-BorderColor: #D1D5DE1A;
-    --button-secondary-hover-BackgroundColor: #D1D5DE1A;
-    --button-secondary-active-BackgroundColor: #D1D5DE26;
+    --button-secondary-BackgroundColor: #d1d5de0d;
+    --button-secondary-BorderColor: #d1d5de1a;
+    --button-secondary-hover-BackgroundColor: #d1d5de1a;
+    --button-secondary-active-BackgroundColor: #d1d5de26;
 
-    --button-negative-BackgroundColor: #E34748;
-    --button-tertiary-hover-BackgroundColor: #D1D5DE1A;
-    --button-tertiary-active-BackgroundColor: #D1D5DE26;
+    --button-negative-BackgroundColor: #e34748;
+    --button-tertiary-hover-BackgroundColor: #d1d5de1a;
+    --button-tertiary-active-BackgroundColor: #d1d5de26;
   }
 </style>
