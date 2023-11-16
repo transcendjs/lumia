@@ -35,12 +35,3 @@
   --large-BorderRadius: 1rem;
   --large-focus-BorderRadius: 1.125rem;
 }
-
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  margin: 0;
-}

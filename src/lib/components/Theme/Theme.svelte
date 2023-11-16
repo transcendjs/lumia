@@ -15,11 +15,6 @@
 
 <style>
   div {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-    padding: 1rem;
-
     /** Typography **/
 
     font-family: 'IBM Plex Sans', sans-serif;
