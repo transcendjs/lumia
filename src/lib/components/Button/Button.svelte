@@ -9,10 +9,11 @@
   import ButtonBase from './ButtonBase.svelte'
 
   export let title: string
-  export let kind: 'primary' | 'secondary' = 'secondary'
-  export let size: 'large' | 'small' = 'large'
+  export let kind: 'primary' | 'secondary' | 'tertiary' | 'negative' = 'secondary'
+  export let size: 'large' | 'medium' | 'small' = 'large'
   export let icon: IconId | undefined = undefined
+  export let disabled: boolean = false
   export let loading: boolean = false
 </script>
 
-<ButtonBase {title} {kind} {size} {icon} {loading} />
+<ButtonBase {title} {kind} {size} {icon} {loading} {disabled} />
