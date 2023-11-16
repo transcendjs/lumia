@@ -1,6 +1,6 @@
 # Contributing to Transcend Platform
 
-* [Developer's Certificate of Origin 1.1](#developers-certificate-of-origin)
+- [Developer's Certificate of Origin 1.1](#developers-certificate-of-origin)
 
 <a id="developers-certificate-of-origin"></a>
 
