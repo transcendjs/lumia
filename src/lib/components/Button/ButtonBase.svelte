@@ -14,9 +14,10 @@
   export let size: 'large' | 'medium' | 'small'
   export let disabled: boolean = false
   export let loading: boolean = false
+  export let iconOnly: boolean = false
 </script>
 
-<button class="{kind} {size}" class:loading disabled={loading || disabled}>
+<button class="{kind} {size}" class:loading class:iconOnly disabled={loading || disabled}>
   {#if loading}
     <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
@@ -53,21 +54,42 @@
       outline: 2px solid var(--global-focus-BorderColor);
       outline-offset: 2px;
     }
+    &.iconOnly {
+      padding: 0;
+    }
 
     &.large {
       height: var(--spacing-6);
-      padding: var(--spacing-1_5) var(--spacing-2);
       border-radius: var(--medium-BorderRadius);
+
+      &.iconOnly {
+        width: var(--spacing-6);
+      }
+      &:not(.iconOnly) {
+        padding: var(--spacing-1_5) var(--spacing-2);
+      }
     }
     &.medium {
       height: var(--spacing-5);
-      padding: var(--spacing-1) var(--spacing-2);
       border-radius: var(--medium-BorderRadius);
+
+      &.iconOnly {
+        width: var(--spacing-5);
+      }
+      &:not(.iconOnly) {
+        padding: var(--spacing-1) var(--spacing-2);
+      }
     }
     &.small {
       height: var(--spacing-4);
-      padding: var(--spacing-1) var(--spacing-1_5);
       border-radius: var(--small-BorderRadius);
+
+      &.iconOnly {
+        width: var(--spacing-4);
+      }
+      &:not(.iconOnly) {
+        padding: var(--spacing-1) var(--spacing-1_5);
+      }
     }
 
     &.primary {
