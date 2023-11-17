@@ -35,3 +35,18 @@
   --large-BorderRadius: 1rem;
   --large-focus-BorderRadius: 1.125rem;
 }
+
+.ui-regular-14,
+.ui-medium-14 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1rem;
+  color: var(--global-primary-TextColor);
+}
+.ui-regular-14 {
+  font-weight: 400;
+}
+.ui-medium-14 {
+  font-weight: 500;
+}

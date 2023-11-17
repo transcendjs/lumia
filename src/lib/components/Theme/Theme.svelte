@@ -46,6 +46,7 @@
 
   div.light {
     --background-color-bg-surface-01: #f0f2f5;
+    --global-primary-TextColor: #0f121a;
 
     --button-subtle-LabelColor: #000;
     --button-subtle-IconColor: #000;
@@ -60,10 +61,13 @@
     --button-negative-BackgroundColor: #ea4c4c;
     --button-tertiary-hover-BackgroundColor: #1725471a;
     --button-tertiary-active-BackgroundColor: #17254726;
+
+    --button-menu-active-BorderColor: #0f121a;
   }
 
   div.dark {
     --background-color-bg-surface-01: #1b2230;
+    --global-primary-TextColor: #ffffff;
 
     --button-subtle-LabelColor: #fff;
     --button-subtle-IconColor: #fff;
@@ -78,5 +82,7 @@
     --button-negative-BackgroundColor: #e34748;
     --button-tertiary-hover-BackgroundColor: #d1d5de1a;
     --button-tertiary-active-BackgroundColor: #d1d5de26;
+
+    --button-menu-active-BorderColor: #d9dee6;
   }
 </style>

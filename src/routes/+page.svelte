@@ -2,6 +2,8 @@
   import Theme from '$lib/components/Theme/Theme.svelte'
   import Button from '$lib/components/Button/Button.svelte'
   import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
+  import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
+  import Icon from '$lib/components/Icon/Icon.svelte'
   import type { IconId } from '$lib/icons.js'
 
   const icon = 'default' as IconId
@@ -14,7 +16,7 @@
     'negative'
   ]
   const sizes: Array<'large' | 'medium' | 'small'> = ['large', 'medium', 'small']
-  let collapsed: boolean[] = new Array(sizes.length * 2)
+  let extended: boolean[] = new Array(sizes.length * 3)
 </script>
 
 <div class="themes">
@@ -27,13 +29,16 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div
             class="row group"
-            class:collapsed={collapsed[i]}
-            on:click={() => (collapsed[i] = !collapsed[i])}
+            class:collapsed={!extended[i]}
+            on:click={() => (extended[i] = !extended[i])}
           >
             Size: {size}
-            <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
-            </svg>
+            <div class="preview" on:click|stopPropagation={() => {}}>
+              <Button {title} kind={'primary'} {size} {icon} />
+              <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
+              </svg>
+            </div>
           </div>
           <div class="column">
             {#each kinds as kind}
@@ -55,13 +60,16 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div
             class="row group"
-            class:collapsed={collapsed[index]}
-            on:click={() => (collapsed[index] = !collapsed[index])}
+            class:collapsed={!extended[index]}
+            on:click={() => (extended[index] = !extended[index])}
           >
             Size: {size}
-            <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
-            </svg>
+            <div class="preview" on:click|stopPropagation={() => {}}>
+              <ButtonIcon kind={'primary'} {size} {icon} />
+              <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
+              </svg>
+            </div>
           </div>
           <div class="column">
             {#each kinds as kind}
@@ -69,6 +77,37 @@
                 <ButtonIcon {kind} {size} {icon} />
                 <ButtonIcon {kind} {size} {icon} loading />
                 <ButtonIcon {kind} {size} {icon} disabled />
+              </div>
+            {/each}
+          </div>
+        {/each}
+        <div class="row header">ButtonMenu</div>
+        {#each sizes as size, i}
+          {@const index = sizes.length * 2 + i}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-static-element-interactions -->
+          <div
+            class="row group"
+            class:collapsed={!extended[index]}
+            on:click={() => (extended[index] = !extended[index])}
+          >
+            Size: {size}
+            <div class="preview" on:click|stopPropagation={() => {}}>
+              <ButtonMenu {title} kind={'primary'} {size} {icon} component={Icon} />
+              <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
+              </svg>
+            </div>
+          </div>
+          <div class="column">
+            {#each kinds as kind}
+              <div class="row">
+                <ButtonMenu {title} {kind} {size} {icon} component={Icon} />
+                <ButtonMenu {title} {kind} {size} {icon} loading component={Icon} />
+                <ButtonMenu {title} {kind} {size} {icon} disabled component={Icon} />
+                <ButtonMenu {kind} {size} {icon} component={Icon} />
+                <ButtonMenu {kind} {size} {icon} loading component={Icon} />
+                <ButtonMenu {kind} {size} {icon} disabled component={Icon} />
               </div>
             {/each}
           </div>
@@ -107,6 +146,12 @@
         margin: 0 -1rem;
         font-weight: 500;
         border-radius: var(--extra-small-BorderRadius);
+
+        .preview {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
       }
       &.header {
         padding: 0.5rem 1rem;
@@ -119,7 +164,6 @@
         justify-content: space-between;
         font-size: 2rem;
         color: var(--button-disabled-IconColor);
-        // border: 1px solid var(--button-secondary-BorderColor);
         cursor: pointer;
 
         .chevron {
@@ -130,14 +174,9 @@
           transform: rotate(0deg);
           transition: transform 0.1s ease-in-out;
         }
-        &:hover {
-          background-color: var(--button-secondary-hover-BackgroundColor);
-        }
-        &:active {
-          background-color: var(--button-secondary-active-BackgroundColor);
-        }
         &:hover,
         &:active {
+          background-color: var(--button-secondary-hover-BackgroundColor);
           color: var(--button-subtle-LabelColor);
         }
         &.collapsed {

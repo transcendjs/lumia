@@ -14,10 +14,17 @@
   export let size: 'large' | 'medium' | 'small'
   export let disabled: boolean = false
   export let loading: boolean = false
-  export let type: 'type-button' | 'type-button-icon'
+  export let pressed: boolean = false
+  export let type: 'type-button' | 'type-button-icon' | 'type-button-menu' | 'type-button-icon-menu'
 </script>
 
-<button class="{kind} {size} {type}" class:loading disabled={loading || disabled}>
+<button
+  class="ui-medium-14 {kind} {size} {type}"
+  class:loading
+  class:pressed
+  disabled={loading || disabled}
+  on:click
+>
   {#if loading}
     <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
@@ -27,9 +34,6 @@
 
 <style lang="scss">
   button {
-    font: inherit;
-    font-weight: 500;
-
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -53,17 +57,20 @@
       outline: 2px solid var(--global-focus-BorderColor);
       outline-offset: 2px;
     }
-    &.type-button-icon {
+    &.type-button-icon,
+    &.type-button-icon-menu {
       padding: 0;
     }
     &.large {
       height: var(--spacing-6);
       border-radius: var(--medium-BorderRadius);
 
-      &.type-button {
+      &.type-button,
+      &.type-button-menu {
         padding: 0 var(--spacing-2);
       }
-      &.type-button-icon {
+      &.type-button-icon,
+      &.type-button-icon-menu {
         width: var(--spacing-6);
       }
     }
@@ -71,10 +78,12 @@
       height: var(--spacing-5);
       border-radius: var(--medium-BorderRadius);
 
-      &.type-button {
+      &.type-button,
+      &.type-button-menu {
         padding: 0 var(--spacing-2);
       }
-      &.type-button-icon {
+      &.type-button-icon,
+      &.type-button-icon-menu {
         width: var(--spacing-5);
       }
     }
@@ -82,10 +91,12 @@
       height: var(--spacing-4);
       border-radius: var(--small-BorderRadius);
 
-      &.type-button {
+      &.type-button,
+      &.type-button-menu {
         padding: 0 var(--spacing-1_5);
       }
-      &.type-button-icon {
+      &.type-button-icon,
+      &.type-button-icon-menu {
         width: var(--spacing-4);
       }
     }
@@ -103,8 +114,14 @@
       &:hover {
         background-color: var(--button-primary-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-primary-active-BackgroundColor);
+      }
+      &.type-button-menu:enabled:active,
+      &.type-button-icon-menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
@@ -140,8 +157,14 @@
       &:hover {
         background-color: var(--button-secondary-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-secondary-active-BackgroundColor);
+      }
+      &.type-button-menu:enabled:active,
+      &.type-button-icon-menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
@@ -177,8 +200,14 @@
       &:hover:enabled {
         background-color: var(--button-tertiary-hover-BackgroundColor);
       }
-      &:active:enabled {
+      &:active:enabled,
+      &.pressed:enabled {
         background-color: var(--button-tertiary-active-BackgroundColor);
+      }
+      &.type-button-menu:active:enabled,
+      &.type-button-icon-menu:active:enabled,
+      &.pressed:enabled {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         border-color: transparent;
@@ -213,8 +242,14 @@
       &:hover {
         background-color: var(--button-negative-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-negative-active-BackgroundColor);
+      }
+      &.type-button-menu:enabled:active,
+      &.type-button-icon-menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
