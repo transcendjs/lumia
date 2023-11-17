@@ -14,9 +14,10 @@
   export let size: 'large' | 'medium' | 'small'
   export let disabled: boolean = false
   export let loading: boolean = false
+  export let type: 'type-button' | 'type-button-icon'
 </script>
 
-<button class="{kind} {size}" class:loading disabled={loading || disabled}>
+<button class="{kind} {size} {type}" class:loading disabled={loading || disabled}>
   {#if loading}
     <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
@@ -35,6 +36,10 @@
     flex-shrink: 0;
     gap: var(--spacing-1);
 
+    box-sizing: border-box;
+    border: 1px;
+    border-style: solid;
+
     .icon {
       width: var(--spacing-2_5);
       height: var(--spacing-2_5);
@@ -44,45 +49,81 @@
       }
     }
 
-    &:not(.tertiary) {
-      border-width: 1px;
-      border-style: solid;
-    }
-
     &:focus {
       outline: 2px solid var(--global-focus-BorderColor);
       outline-offset: 2px;
     }
-
+    &.type-button-icon {
+      padding: 0;
+    }
     &.large {
       height: var(--spacing-6);
-      padding: var(--spacing-1_5) var(--spacing-2);
       border-radius: var(--medium-BorderRadius);
+
+      &.type-button {
+        padding: 0 var(--spacing-2);
+      }
+      &.type-button-icon {
+        width: var(--spacing-6);
+      }
     }
     &.medium {
       height: var(--spacing-5);
-      padding: var(--spacing-1) var(--spacing-2);
       border-radius: var(--medium-BorderRadius);
+
+      &.type-button {
+        padding: 0 var(--spacing-2);
+      }
+      &.type-button-icon {
+        width: var(--spacing-5);
+      }
     }
     &.small {
       height: var(--spacing-4);
-      padding: var(--spacing-1) var(--spacing-1_5);
       border-radius: var(--small-BorderRadius);
+
+      &.type-button {
+        padding: 0 var(--spacing-1_5);
+      }
+      &.type-button-icon {
+        width: var(--spacing-4);
+      }
     }
 
     &.primary {
       border-color: var(--button-primary-BorderColor);
       background-color: var(--button-primary-BackgroundColor);
 
+      .icon {
+        fill: var(--button-accent-IconColor);
+      }
+      span {
+        color: var(--button-accent-LabelColor);
+      }
       &:hover {
         background-color: var(--button-primary-hover-BackgroundColor);
       }
-      &:active,
-      &.loading {
+      &:active {
         background-color: var(--button-primary-active-BackgroundColor);
       }
-      &.loading span {
-        color: var(--button-primary-loading-LabelColor);
+      &:disabled:not(.loading) {
+        background-color: var(--button-disabled-BackgroundColor);
+        border-color: transparent;
+        cursor: not-allowed;
+
+        .icon {
+          fill: var(--button-disabled-IconColor);
+        }
+        span {
+          color: var(--button-disabled-LabelColor);
+        }
+      }
+      &.loading {
+        background-color: var(--button-primary-active-BackgroundColor);
+
+        span {
+          color: var(--button-primary-loading-LabelColor);
+        }
       }
     }
 
@@ -90,35 +131,72 @@
       border-color: var(--button-secondary-BorderColor);
       background-color: var(--button-secondary-BackgroundColor);
 
+      .icon {
+        fill: var(--button-subtle-IconColor);
+      }
+      span {
+        color: var(--button-subtle-LabelColor);
+      }
       &:hover {
         background-color: var(--button-secondary-hover-BackgroundColor);
       }
-      &:active,
-      &.loading {
+      &:active {
         background-color: var(--button-secondary-active-BackgroundColor);
       }
-      &.loading span {
-        color: var(--button-disabled-LabelColor);
+      &:disabled:not(.loading) {
+        background-color: var(--button-disabled-BackgroundColor);
+        border-color: transparent;
+        cursor: not-allowed;
+
+        .icon {
+          fill: var(--button-disabled-IconColor);
+        }
+        span {
+          color: var(--button-disabled-LabelColor);
+        }
+      }
+      &.loading {
+        background-color: var(--button-secondary-active-BackgroundColor);
+
+        span {
+          color: var(--button-disabled-LabelColor);
+        }
       }
     }
 
     &.tertiary {
-      border: none;
+      border-color: transparent;
       background-color: transparent;
 
-      &:not(:disabled) {
-        &:hover {
-          background-color: var(--button-tertiary-hover-BackgroundColor);
+      .icon {
+        fill: var(--button-subtle-IconColor);
+      }
+      span {
+        color: var(--button-subtle-LabelColor);
+      }
+      &:hover:enabled {
+        background-color: var(--button-tertiary-hover-BackgroundColor);
+      }
+      &:active:enabled {
+        background-color: var(--button-tertiary-active-BackgroundColor);
+      }
+      &:disabled:not(.loading) {
+        border-color: transparent;
+        cursor: not-allowed;
+
+        .icon {
+          fill: var(--button-disabled-IconColor);
         }
-        &:active {
-          background-color: var(--button-tertiary-active-BackgroundColor);
+        span {
+          color: var(--button-disabled-LabelColor);
         }
       }
       &.loading {
         background-color: var(--button-tertiary-active-BackgroundColor);
-      }
-      &.loading span {
-        color: var(--button-disabled-LabelColor);
+
+        span {
+          color: var(--button-disabled-LabelColor);
+        }
       }
     }
 
@@ -126,50 +204,36 @@
       border-color: var(--button-negative-BorderColor);
       background-color: var(--button-negative-BackgroundColor);
 
+      .icon {
+        fill: var(--button-accent-IconColor);
+      }
+      span {
+        color: var(--button-accent-LabelColor);
+      }
       &:hover {
         background-color: var(--button-negative-hover-BackgroundColor);
       }
-      &:active,
-      &.loading {
+      &:active {
         background-color: var(--button-negative-active-BackgroundColor);
       }
-      &.loading span {
-        color: var(--button-negative-loading-LabelColor);
-      }
-    }
-
-    &:not(:disabled) {
-      &.primary,
-      &.negative {
-        .icon {
-          fill: var(--button-accent-IconColor);
-        }
-        span {
-          color: var(--button-accent-LabelColor);
-        }
-      }
-      &.secondary,
-      &.tertiary {
-        .icon {
-          fill: var(--button-subtle-IconColor);
-        }
-        span {
-          color: var(--button-subtle-LabelColor);
-        }
-      }
-    }
-    &:disabled:not(.loading) {
-      border: none;
-      cursor: not-allowed;
-
-      &:not(.tertiary) {
+      &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
+        border-color: transparent;
+        cursor: not-allowed;
+
+        .icon {
+          fill: var(--button-disabled-IconColor);
+        }
+        span {
+          color: var(--button-disabled-LabelColor);
+        }
       }
-      .icon {
-        fill: var(--button-disabled-IconColor);
-      }
-      span {
-        color: var(--button-disabled-LabelColor);
+      &.loading {
+        background-color: var(--button-negative-active-BackgroundColor);
+
+        span {
+          color: var(--button-negative-loading-LabelColor);
+        }
       }
     }
   }

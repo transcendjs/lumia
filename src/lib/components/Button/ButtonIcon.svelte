@@ -8,10 +8,11 @@
 
   import ButtonBase from './ButtonBase.svelte'
 
-  export let kind: 'primary' | 'secondary' = 'secondary'
-  export let size: 'large' | 'small' = 'large'
+  export let kind: 'primary' | 'secondary' | 'tertiary' | 'negative' = 'secondary'
+  export let size: 'large' | 'medium' | 'small' = 'large'
   export let icon: IconId
+  export let disabled: boolean = false
   export let loading: boolean = false
 </script>
 
-<ButtonBase {kind} {size} {icon} {loading} />
+<ButtonBase type={'type-button-icon'} {kind} {size} {icon} {disabled} {loading} />

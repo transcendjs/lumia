@@ -10,11 +10,11 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['small', 'large']
+      options: ['small', 'medium', 'large']
     },
     kind: {
       control: { type: 'select' },
-      options: ['primary', 'secondary']
+      options: ['primary', 'secondary', 'tertiary', 'negative']
     },
     icon: {
       control: { type: 'text' }
@@ -30,13 +30,76 @@ const icon = 'default' as IconId
 export const LargePrimary: Story = {
   args: {
     icon,
-    kind: 'primary'
+    kind: 'primary',
+    size: 'large'
+  }
+}
+export const LargePrimaryLoading: Story = {
+  args: {
+    icon,
+    kind: 'primary',
+    size: 'large',
+    loading: true
+  }
+}
+export const LargeSecondary: Story = {
+  args: {
+    icon,
+    kind: 'secondary',
+    size: 'large'
+  }
+}
+export const LargeTertiary: Story = {
+  args: {
+    icon,
+    kind: 'tertiary',
+    size: 'large'
+  }
+}
+export const LargeNegative: Story = {
+  args: {
+    icon,
+    kind: 'negative',
+    size: 'large'
+  }
+}
+export const LargeNegativeLoading: Story = {
+  args: {
+    icon,
+    kind: 'negative',
+    size: 'large',
+    loading: true
   }
 }
 
-export const LargeSecondary: Story = {
+// M E D I U M
+
+export const MediumPrimary: Story = {
   args: {
-    icon
+    icon,
+    kind: 'primary',
+    size: 'medium'
+  }
+}
+export const MediumSecondary: Story = {
+  args: {
+    icon,
+    kind: 'secondary',
+    size: 'medium'
+  }
+}
+export const MediumTertiary: Story = {
+  args: {
+    icon,
+    kind: 'tertiary',
+    size: 'medium'
+  }
+}
+export const MediumNegative: Story = {
+  args: {
+    icon,
+    kind: 'negative',
+    size: 'medium'
   }
 }
 
@@ -49,10 +112,23 @@ export const SmallPrimary: Story = {
     size: 'small'
   }
 }
-
 export const SmallSecondary: Story = {
   args: {
     icon,
+    size: 'small'
+  }
+}
+export const SmallTertiary: Story = {
+  args: {
+    icon,
+    kind: 'tertiary',
+    size: 'small'
+  }
+}
+export const SmallNegative: Story = {
+  args: {
+    icon,
+    kind: 'negative',
     size: 'small'
   }
 }
