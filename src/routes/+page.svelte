@@ -3,7 +3,6 @@
   import Button from '$lib/components/Button/Button.svelte'
   import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
-  import Icon from '$lib/components/Icon/Icon.svelte'
   import type { IconId } from '$lib/icons.js'
 
   const icon = 'default' as IconId
@@ -93,7 +92,7 @@
           >
             Size: {size}
             <div class="preview" on:click|stopPropagation={() => {}}>
-              <ButtonMenu {title} kind={'primary'} {size} {icon} component={Icon} />
+              <ButtonMenu {title} kind={'primary'} {size} {icon} />
               <svg class="chevron" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.2,4.9L3,6.1l5,5l5-5l-1.2-1.2L8,8.7L4.2,4.9z" />
               </svg>
@@ -102,12 +101,12 @@
           <div class="column">
             {#each kinds as kind}
               <div class="row">
-                <ButtonMenu {title} {kind} {size} {icon} component={Icon} />
-                <ButtonMenu {title} {kind} {size} {icon} loading component={Icon} />
-                <ButtonMenu {title} {kind} {size} {icon} disabled component={Icon} />
-                <ButtonMenu {kind} {size} {icon} component={Icon} />
-                <ButtonMenu {kind} {size} {icon} loading component={Icon} />
-                <ButtonMenu {kind} {size} {icon} disabled component={Icon} />
+                <ButtonMenu {title} {kind} {size} {icon} />
+                <ButtonMenu {title} {kind} {size} {icon} loading />
+                <ButtonMenu {title} {kind} {size} {icon} disabled />
+                <ButtonMenu {kind} {size} {icon} />
+                <ButtonMenu {kind} {size} {icon} loading />
+                <ButtonMenu {kind} {size} {icon} disabled />
               </div>
             {/each}
           </div>
