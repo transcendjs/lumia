@@ -15,13 +15,15 @@
   export let disabled: boolean = false
   export let loading: boolean = false
   export let pressed: boolean = false
-  export let type: 'type-button' | 'type-button-icon' | 'type-button-menu' | 'type-button-icon-menu'
+  export let hasMenu: boolean = false
+  export let type: 'type-button' | 'type-button-icon'
 </script>
 
 <button
   class="ui-medium-14 {kind} {size} {type}"
   class:loading
   class:pressed
+  class:menu={hasMenu}
   disabled={loading || disabled}
   on:click
 >
@@ -57,20 +59,17 @@
       outline: 2px solid var(--global-focus-BorderColor);
       outline-offset: 2px;
     }
-    &.type-button-icon,
-    &.type-button-icon-menu {
+    &.type-button-icon {
       padding: 0;
     }
     &.large {
       height: var(--spacing-6);
       border-radius: var(--medium-BorderRadius);
 
-      &.type-button,
-      &.type-button-menu {
+      &.type-button {
         padding: 0 var(--spacing-2);
       }
-      &.type-button-icon,
-      &.type-button-icon-menu {
+      &.type-button-icon {
         width: var(--spacing-6);
       }
     }
@@ -78,12 +77,10 @@
       height: var(--spacing-5);
       border-radius: var(--medium-BorderRadius);
 
-      &.type-button,
-      &.type-button-menu {
+      &.type-button {
         padding: 0 var(--spacing-2);
       }
-      &.type-button-icon,
-      &.type-button-icon-menu {
+      &.type-button-icon {
         width: var(--spacing-5);
       }
     }
@@ -91,12 +88,10 @@
       height: var(--spacing-4);
       border-radius: var(--small-BorderRadius);
 
-      &.type-button,
-      &.type-button-menu {
+      &.type-button {
         padding: 0 var(--spacing-1_5);
       }
-      &.type-button-icon,
-      &.type-button-icon-menu {
+      &.type-button-icon {
         width: var(--spacing-4);
       }
     }
@@ -118,8 +113,7 @@
       &.pressed {
         background-color: var(--button-primary-active-BackgroundColor);
       }
-      &.type-button-menu:enabled:active,
-      &.type-button-icon-menu:enabled:active,
+      &.menu:enabled:active,
       &.pressed {
         border-color: var(--button-menu-active-BorderColor);
       }
@@ -161,8 +155,7 @@
       &.pressed {
         background-color: var(--button-secondary-active-BackgroundColor);
       }
-      &.type-button-menu:enabled:active,
-      &.type-button-icon-menu:enabled:active,
+      &.menu:enabled:active,
       &.pressed {
         border-color: var(--button-menu-active-BorderColor);
       }
@@ -204,8 +197,7 @@
       &.pressed:enabled {
         background-color: var(--button-tertiary-active-BackgroundColor);
       }
-      &.type-button-menu:active:enabled,
-      &.type-button-icon-menu:active:enabled,
+      &.menu:active:enabled,
       &.pressed:enabled {
         border-color: var(--button-menu-active-BorderColor);
       }
@@ -246,8 +238,7 @@
       &.pressed {
         background-color: var(--button-negative-active-BackgroundColor);
       }
-      &.type-button-menu:enabled:active,
-      &.type-button-icon-menu:enabled:active,
+      &.menu:enabled:active,
       &.pressed {
         border-color: var(--button-menu-active-BorderColor);
       }

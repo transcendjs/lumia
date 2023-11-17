@@ -19,7 +19,7 @@
 </script>
 
 <ButtonBase
-  type={title ? 'type-button-menu' : 'type-button-icon-menu'}
+  type={title ? 'type-button' : 'type-button-icon'}
   {title}
   {kind}
   {size}
@@ -27,6 +27,7 @@
   {disabled}
   {loading}
   {pressed}
+  hasMenu
   on:click={() => alert('Popup menu')}
 />
 <slot />
