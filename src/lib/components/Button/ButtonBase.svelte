@@ -14,10 +14,19 @@
   export let size: 'large' | 'medium' | 'small'
   export let disabled: boolean = false
   export let loading: boolean = false
+  export let pressed: boolean = false
+  export let hasMenu: boolean = false
   export let type: 'type-button' | 'type-button-icon'
 </script>
 
-<button class="{kind} {size} {type}" class:loading disabled={loading || disabled}>
+<button
+  class="font-medium-14 {kind} {size} {type}"
+  class:loading
+  class:pressed
+  class:menu={hasMenu}
+  disabled={loading || disabled}
+  on:click
+>
   {#if loading}
     <!-- eslint-disable svelte/no-at-html-tags -->
     <div class="icon animate">{@html LoadingSVG}</div>
@@ -27,9 +36,6 @@
 
 <style lang="scss">
   button {
-    font: inherit;
-    font-weight: 500;
-
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -103,8 +109,13 @@
       &:hover {
         background-color: var(--button-primary-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-primary-active-BackgroundColor);
+      }
+      &.menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
@@ -140,8 +151,13 @@
       &:hover {
         background-color: var(--button-secondary-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-secondary-active-BackgroundColor);
+      }
+      &.menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
@@ -177,8 +193,13 @@
       &:hover:enabled {
         background-color: var(--button-tertiary-hover-BackgroundColor);
       }
-      &:active:enabled {
+      &:active:enabled,
+      &.pressed:enabled {
         background-color: var(--button-tertiary-active-BackgroundColor);
+      }
+      &.menu:active:enabled,
+      &.pressed:enabled {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         border-color: transparent;
@@ -213,8 +234,13 @@
       &:hover {
         background-color: var(--button-negative-hover-BackgroundColor);
       }
-      &:active {
+      &:active,
+      &.pressed {
         background-color: var(--button-negative-active-BackgroundColor);
+      }
+      &.menu:enabled:active,
+      &.pressed {
+        border-color: var(--button-menu-active-BorderColor);
       }
       &:disabled:not(.loading) {
         background-color: var(--button-disabled-BackgroundColor);
