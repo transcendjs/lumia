@@ -20,7 +20,7 @@
 </script>
 
 <button
-  class="ui-medium-14 {kind} {size} {type}"
+  class="font-medium-14 {kind} {size} {type}"
   class:loading
   class:pressed
   class:menu={hasMenu}

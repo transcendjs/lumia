@@ -15,14 +15,6 @@
 
 <style>
   div {
-    /** Typography **/
-
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1rem;
-
     --button-accent-LabelColor: #fff;
     --button-disabled-LabelColor: #8b97ad;
     --button-accent-IconColor: #fff;
