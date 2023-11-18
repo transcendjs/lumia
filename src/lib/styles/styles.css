@@ -6,6 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
 :root {
+  /** Typography **/
+
+  --font-family: 'IBM Plex Sans', sans-serif;
+
   /** Space & Dimensions **/
 
   --spacing-0_25: 0.125rem;

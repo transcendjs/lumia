@@ -9,22 +9,12 @@
   export let theme: 'light' | 'dark' = 'light'
 </script>
 
-<div class={theme}>
+<div class="font-regular-14 {theme}">
   <slot />
 </div>
 
 <style>
   div {
-    /** Typography **/
-
-    --font-family: 'IBM Plex Sans', sans-serif;
-  
-    font-family: var(--font-family);
-    font-style: normal;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1rem;  
-
     /** Colors **/
 
     --button-accent-LabelColor: #fff;
