@@ -5,15 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
-* {
-  /** Typography **/
-
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1rem;  
-}
-
 :root {
   /** Space & Dimensions **/
 
@@ -47,6 +38,7 @@
 
 .font-regular-14,
 .font-medium-14 {
+  font-family: var(--font-family);
   font-size: 0.875rem;
   font-style: normal;
   line-height: 1rem;
