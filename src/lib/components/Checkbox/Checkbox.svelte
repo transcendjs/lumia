@@ -116,7 +116,9 @@
       }
       &:required + .checkbox-element + .checkbox-label::after {
         content: '*';
-        padding-left: 0.125rem;
+        position: relative;
+        top: -0.125rem;
+        left: 0.125rem;
         color: var(--global-error-TextColor);
       }
     }
