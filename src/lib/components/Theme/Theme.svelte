@@ -46,6 +46,8 @@
   div.light {
     --background-color-bg-surface-01: #f0f2f5;
     --global-primary-TextColor: #0f121a;
+    --global-disabled-TextColor: #cbd2dd;
+    --global-error-TextColor: #a01724;
 
     /** Buttons **/
     --button-subtle-LabelColor: #000;
@@ -73,6 +75,8 @@
   div.dark {
     --background-color-bg-surface-01: #1b2230;
     --global-primary-TextColor: #ffffff;
+    --global-disabled-TextColor: #252e3f;
+    --global-error-TextColor: #fb6863;
 
     /** Buttons **/
     --button-subtle-LabelColor: #fff;
