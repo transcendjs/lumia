@@ -33,7 +33,12 @@
     --button-negative-hover-BackgroundColor: #e34748;
     --button-negative-active-BackgroundColor: #c42a32;
 
+    --selector-active-BackgroundColor: #3364e2;
+    --selector-IconColor: #ffffff;
+    --selector-disabled-IconColor: #8b97ad;
+
     --global-focus-BorderColor: #3364e2;
+    --border-color-global-error-border-color: #fb6863;
 
     background-color: var(--background-color-bg-surface-01);
   }
@@ -42,41 +47,53 @@
     --background-color-bg-surface-01: #f0f2f5;
     --global-primary-TextColor: #0f121a;
 
+    /** Buttons **/
     --button-subtle-LabelColor: #000;
     --button-subtle-IconColor: #000;
     --button-disabled-BackgroundColor: #1725470d;
     --button-primary-loading-LabelColor: #95baff;
-
     --button-secondary-BackgroundColor: #1725470d;
     --button-secondary-BorderColor: #1725471a;
     --button-secondary-hover-BackgroundColor: #1725471a;
     --button-secondary-active-BackgroundColor: #17254726;
-
     --button-negative-BackgroundColor: #ea4c4c;
     --button-tertiary-hover-BackgroundColor: #1725471a;
     --button-tertiary-active-BackgroundColor: #17254726;
-
     --button-menu-active-BorderColor: #0f121a;
+
+    /** Checkboxes **/
+    --selector-BackgroundColor: #1530720d;
+    --selector-BorderColor: #0f121a;
+    --selector-off-BackgroundColor: #cbd2dd;
+    --selector-hover-overlay-BackgroundColor: #1530721a;
+    --selector-disabled-BackgroundColor: #1530721a;
+    --selector-disabled-BorderColor: #1530720d;
   }
 
   div.dark {
     --background-color-bg-surface-01: #1b2230;
     --global-primary-TextColor: #ffffff;
 
+    /** Buttons **/
     --button-subtle-LabelColor: #fff;
     --button-subtle-IconColor: #fff;
     --button-disabled-BackgroundColor: #d1d5de0d;
     --button-primary-loading-LabelColor: #6191fe;
-
     --button-secondary-BackgroundColor: #d1d5de0d;
     --button-secondary-BorderColor: #d1d5de1a;
     --button-secondary-hover-BackgroundColor: #d1d5de1a;
     --button-secondary-active-BackgroundColor: #d1d5de26;
-
     --button-negative-BackgroundColor: #e34748;
     --button-tertiary-hover-BackgroundColor: #d1d5de1a;
     --button-tertiary-active-BackgroundColor: #d1d5de26;
-
     --button-menu-active-BorderColor: #d9dee6;
+
+    /** Checkboxes **/
+    --selector-BackgroundColor: #a5bdff0d;
+    --selector-BorderColor: #d9dee6;
+    --selector-off-BackgroundColor: #556178;
+    --selector-hover-overlay-BackgroundColor: #a5bdff1a;
+    --selector-disabled-BackgroundColor: #a5bdff1a;
+    --selector-disabled-BorderColor: #a5bdff0d;
   }
 </style>
