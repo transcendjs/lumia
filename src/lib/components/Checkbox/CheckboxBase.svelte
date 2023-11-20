@@ -7,7 +7,7 @@
   import { createEventDispatcher } from 'svelte'
 
   export let checked: boolean = false
-  export let type: 'checked' | 'indeterminate' = 'checked'
+  export let indeterminate: boolean = false
   export let disabled: boolean = false
   export let error: boolean = false
 
@@ -16,10 +16,12 @@
   let chBox: HTMLInputElement
   const handleValueChanged = (_: Event, invert: boolean = false) => {
     if (disabled) return
-    if (invert) {
-      checked = !checked
-      chBox.focus()
+    chBox.focus()
+    if (indeterminate) {
+      dispatch('value', 'uncheck')
+      return
     }
+    if (invert) checked = !checked
     dispatch('value', checked)
   }
 </script>
@@ -30,12 +32,13 @@
   class="checkbox"
   bind:checked
   {disabled}
+  {indeterminate}
   on:change={handleValueChanged}
 />
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  class="checkbox-element {type}"
+  class="checkbox-element"
   class:disabled
   class:error
   on:click|stopPropagation={(_) => handleValueChanged(_, true)}
@@ -69,7 +72,8 @@
     border: 0;
     clip: rect(0 0 0 0);
 
-    &:checked + .checkbox-element {
+    &:checked + .checkbox-element,
+    &:indeterminate + .checkbox-element {
       background-color: var(--selector-active-BackgroundColor);
       border-color: var(--selector-active-BackgroundColor);
 
@@ -83,16 +87,14 @@
         background-color: var(--selector-IconColor);
         transform: translate(-50%, -50%);
       }
-      &.checked::after {
-        clip-path: path(
-          'M9.7,0.5c0.4,0.4,0.4,1,0,1.4L4.1,7.8L0.3,4.2c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0L4,5l4.3-4.5C8.6,0.1,9.3,0.1,9.7,0.5z'
-        );
-      }
-      &.indeterminate::after {
-        clip-path: path(
-          'M0,4c0-0.6,0.4-1,1-1h8c0.6,0,1,0.4,1,1c0,0.6-0.4,1-1,1H1C0.4,5,0,4.6,0,4z'
-        );
-      }
+    }
+    &:checked + .checkbox-element::after {
+      clip-path: path(
+        'M9.7,0.5c0.4,0.4,0.4,1,0,1.4L4.1,7.8L0.3,4.2c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0L4,5l4.3-4.5C8.6,0.1,9.3,0.1,9.7,0.5z'
+      );
+    }
+    &:indeterminate + .checkbox-element::after {
+      clip-path: path('M0,4c0-0.6,0.4-1,1-1h8c0.6,0,1,0.4,1,1c0,0.6-0.4,1-1,1H1C0.4,5,0,4.6,0,4z');
     }
     &:not(:disabled) + .checkbox-element {
       cursor: pointer;
