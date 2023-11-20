@@ -42,7 +42,6 @@
     flex-shrink: 0;
     gap: var(--spacing-1);
 
-    box-sizing: border-box;
     border: 1px;
     border-style: solid;
 

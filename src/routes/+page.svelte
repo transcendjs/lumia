@@ -15,7 +15,7 @@
     'negative'
   ]
   const sizes: Array<'large' | 'medium' | 'small'> = ['large', 'medium', 'small']
-  let extended: boolean[] = new Array(sizes.length * 3)
+  let expanded: boolean[] = new Array(sizes.length * 3)
 </script>
 
 <div class="themes">
@@ -28,8 +28,8 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div
             class="row group"
-            class:collapsed={!extended[i]}
-            on:click={() => (extended[i] = !extended[i])}
+            class:collapsed={!expanded[i]}
+            on:click={() => (expanded[i] = !expanded[i])}
           >
             Size: {size}
             <div class="preview" on:click|stopPropagation={() => {}}>
@@ -59,8 +59,8 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div
             class="row group"
-            class:collapsed={!extended[index]}
-            on:click={() => (extended[index] = !extended[index])}
+            class:collapsed={!expanded[index]}
+            on:click={() => (expanded[index] = !expanded[index])}
           >
             Size: {size}
             <div class="preview" on:click|stopPropagation={() => {}}>
@@ -87,8 +87,8 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div
             class="row group"
-            class:collapsed={!extended[index]}
-            on:click={() => (extended[index] = !extended[index])}
+            class:collapsed={!expanded[index]}
+            on:click={() => (expanded[index] = !expanded[index])}
           >
             Size: {size}
             <div class="preview" on:click|stopPropagation={() => {}}>
