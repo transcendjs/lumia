@@ -21,16 +21,13 @@ const meta = {
       control: { type: 'select' },
       options: ['default', 'ghost']
     },
-    helperText: {
-      control: { type: 'text' }
-    },
-    errorText: {
-      control: { type: 'text' }
-    },
     disabled: {
       control: { type: 'boolean' }
     },
-    footer: {
+    error: {
+      control: { type: 'boolean' }
+    },
+    password: {
       control: { type: 'boolean' }
     }
   }
@@ -42,35 +39,28 @@ type Story = StoryObj<typeof meta>
 export const EditboxLargeDefault: Story = {
   args: {
     label: 'Label',
-    size: 'large',
-    helperText: 'Helper text',
-    limit: 20
+    size: 'large'
   }
 }
 export const EditboxLargeErrorDefault: Story = {
   args: {
     label: 'Label',
     size: 'large',
-    errorText: 'Helper text',
-    limit: 20
+    error: true
   }
 }
 export const EditboxLargeDisabledDefault: Story = {
   args: {
     label: 'Label',
     size: 'large',
-    helperText: 'Helper text',
-    disabled: true,
-    limit: 20
+    disabled: true
   }
 }
 export const EditboxLargeGhost: Story = {
   args: {
     label: 'Label',
     kind: 'ghost',
-    size: 'large',
-    helperText: 'Helper text',
-    limit: 20
+    size: 'large'
   }
 }
 export const EditboxLargeErrorGhost: Story = {
@@ -78,8 +68,7 @@ export const EditboxLargeErrorGhost: Story = {
     label: 'Label',
     kind: 'ghost',
     size: 'large',
-    errorText: 'Helper text',
-    limit: 20
+    error: true
   }
 }
 export const EditboxLargeDisabledGhost: Story = {
@@ -87,9 +76,7 @@ export const EditboxLargeDisabledGhost: Story = {
     label: 'Label',
     kind: 'ghost',
     size: 'large',
-    helperText: 'Helper text',
-    disabled: true,
-    limit: 20
+    disabled: true
   }
 }
 
@@ -97,47 +84,38 @@ export const EditboxLargeDisabledGhost: Story = {
 
 export const EditboxSmallDefault: Story = {
   args: {
-    label: 'Label',
-    helperText: 'Helper text',
-    limit: 20
+    label: 'Label'
   }
 }
 export const EditboxSmallErrorDefault: Story = {
   args: {
     label: 'Label',
-    errorText: 'Helper text',
-    limit: 20
+    error: true
   }
 }
 export const EditboxSmallDisabledDefault: Story = {
   args: {
     label: 'Label',
-    helperText: 'Helper text',
-    disabled: true,
-    limit: 20
+    disabled: true
   }
 }
 export const EditboxSmallGhost: Story = {
   args: {
     label: 'Label',
-    kind: 'ghost',
-    helperText: 'Helper text',
-    limit: 20
+    kind: 'ghost'
   }
 }
 export const EditboxSmallErrorGhost: Story = {
   args: {
     label: 'Label',
     kind: 'ghost',
-    errorText: 'Helper text',
-    limit: 20
+    error: true
   }
 }
 export const EditboxSmallDisabledGhost: Story = {
   args: {
     label: 'Label',
     kind: 'ghost',
-    helperText: 'Helper text',
     disabled: true
   }
 }

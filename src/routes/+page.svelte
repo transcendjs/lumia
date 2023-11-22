@@ -5,6 +5,7 @@
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
   import Checkbox from '$lib/components/Checkbox/Checkbox.svelte'
   import Editbox from '$lib/components/Editbox/Editbox.svelte'
+  import ValidatingEditbox from '$lib/components/Editbox/ValidatingEditbox.svelte'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -50,18 +51,35 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
-        <div class="row header">Editbox</div>
+        <div class="row header">ValidatingEditbox</div>
         <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
-          <Editbox
+          <ValidatingEditbox
             label={'Label'}
             size={'large'}
-            helperText={'Helper text (Optional)'}
+            messageText={'Helper text (Optional)'}
+            messageKind={'normal'}
             limit={30}
           />
-          <Editbox label={'Label'} errorText={'Error text'} limit={20} />
-          <Editbox label={'Label'} helperText={'Helper text (Optional)'} disabled limit={20} />
+          <ValidatingEditbox
+            label={'Label'}
+            messageText={'Error text'}
+            messageKind={'error'}
+            limit={20}
+          />
+          <ValidatingEditbox
+            label={'Label'}
+            messageText={'Helper text (Optional)'}
+            disabled
+            limit={20}
+          />
+        </div>
+        <div class="row header">Editbox</div>
+        <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
+          <Editbox label={'Label'} size={'large'} limit={30} />
+          <Editbox label={'Label'} error limit={20} />
+          <Editbox label={'Label'} error disabled limit={20} />
           <Editbox label={'Label'} kind={'ghost'} size={'large'} />
-          <Editbox label={'Label'} kind={'ghost'} errorText={'Error text'} />
+          <Editbox label={'Label'} kind={'ghost'} error />
         </div>
         <div class="row header">Checkbox</div>
         <div class="row" style:max-width={'25rem'}>
