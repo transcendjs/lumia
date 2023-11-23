@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
-import ValidatingEditbox from '$lib/components/Editbox/ValidatingEditbox.svelte'
+import FormInput from '$lib/components/Editbox/FormInput.svelte'
 
 const meta = {
-  title: 'Components/ValidatingEditbox',
-  component: ValidatingEditbox,
+  title: 'Components/FormInput',
+  component: FormInput,
   tags: ['autodocs'],
   argTypes: {
     label: {
@@ -31,12 +31,12 @@ const meta = {
       control: { type: 'boolean' }
     }
   }
-} satisfies Meta<ValidatingEditbox>
+} satisfies Meta<FormInput>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ValidatingEditboxLargeDefault: Story = {
+export const FormInputLargeDefault: Story = {
   args: {
     label: 'Label',
     size: 'large',
@@ -44,7 +44,7 @@ export const ValidatingEditboxLargeDefault: Story = {
     limit: 20
   }
 }
-export const ValidatingEditboxLargeErrorDefault: Story = {
+export const FormInputLargeErrorDefault: Story = {
   args: {
     label: 'Label',
     size: 'large',
@@ -53,7 +53,7 @@ export const ValidatingEditboxLargeErrorDefault: Story = {
     limit: 20
   }
 }
-export const ValidatingEditboxLargeDisabledDefault: Story = {
+export const FormInputLargeDisabledDefault: Story = {
   args: {
     label: 'Label',
     size: 'large',
@@ -65,14 +65,14 @@ export const ValidatingEditboxLargeDisabledDefault: Story = {
 
 // S M A L L
 
-export const ValidatingEditboxSmallDefault: Story = {
+export const FormInputSmallDefault: Story = {
   args: {
     label: 'Label',
     messageText: 'Helper text',
     limit: 20
   }
 }
-export const ValidatingEditboxSmallErrorDefault: Story = {
+export const FormInputSmallErrorDefault: Story = {
   args: {
     label: 'Label',
     messageText: 'Error text',
@@ -80,7 +80,7 @@ export const ValidatingEditboxSmallErrorDefault: Story = {
     limit: 20
   }
 }
-export const ValidatingEditboxSmallDisabledDefault: Story = {
+export const FormInputSmallDisabledDefault: Story = {
   args: {
     label: 'Label',
     messageText: 'Helper text',

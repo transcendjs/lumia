@@ -5,7 +5,7 @@
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
   import Checkbox from '$lib/components/Checkbox/Checkbox.svelte'
   import Editbox from '$lib/components/Editbox/Editbox.svelte'
-  import ValidatingEditbox from '$lib/components/Editbox/ValidatingEditbox.svelte'
+  import FormInput from '$lib/components/Editbox/FormInput.svelte'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -53,25 +53,15 @@
       <div class="column root">
         <div class="row header">ValidatingEditbox</div>
         <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
-          <ValidatingEditbox
+          <FormInput
             label={'Label'}
             size={'large'}
             messageText={'Helper text (Optional)'}
             messageKind={'normal'}
             limit={30}
           />
-          <ValidatingEditbox
-            label={'Label'}
-            messageText={'Error text'}
-            messageKind={'error'}
-            limit={20}
-          />
-          <ValidatingEditbox
-            label={'Label'}
-            messageText={'Helper text (Optional)'}
-            disabled
-            limit={20}
-          />
+          <FormInput label={'Label'} messageText={'Error text'} messageKind={'error'} limit={20} />
+          <FormInput label={'Label'} messageText={'Helper text (Optional)'} disabled limit={20} />
         </div>
         <div class="row header">Editbox</div>
         <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
