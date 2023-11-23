@@ -3,6 +3,7 @@
   import Button from '$lib/components/Button/Button.svelte'
   import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
+  import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import type { IconId } from '$lib/icons.js'
 
   const icon = 'default' as IconId
@@ -22,6 +23,13 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
+        <div class="row header">RadioButton</div>
+        <div class="row" style:max-width={'10rem'}>
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} error />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} checked disabled />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} />
+        </div>
         <div class="row header">Button</div>
         {#each sizes as size, i}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
