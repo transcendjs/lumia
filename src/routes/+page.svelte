@@ -4,6 +4,7 @@
   import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
+  import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import type { IconId } from '$lib/icons.js'
 
   const icon = 'default' as IconId
@@ -23,6 +24,19 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
+        <div class="row header">SwitcherBase</div>
+        <div class="row" style:max-width={'20rem'}>
+          <SwitcherBase name={'sw_' + theme} {icon} title={'Switcher label'} />
+          <SwitcherBase name={'sw_' + theme} title={'Switcher label'} />
+          <SwitcherBase
+            name={'sw_' + theme}
+            {icon}
+            title={'Switcher label'}
+            kind={'subtle'}
+            checked
+          />
+          <SwitcherBase name={'sw_' + theme} title={'Switcher label'} kind={'subtle'} />
+        </div>
         <div class="row header">RadioButton</div>
         <div class="row" style:max-width={'10rem'}>
           <RadioButton name={'rg1_' + theme} label={'Radio Label'} />

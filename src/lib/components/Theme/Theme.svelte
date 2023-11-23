@@ -45,9 +45,16 @@
 
   div.light {
     --background-color-bg-surface-01: #f0f2f5;
+    --global-primary-IconColor: #0f121a;
     --global-primary-TextColor: #0f121a;
     --global-disabled-TextColor: #cbd2dd;
     --global-error-TextColor: #a01724;
+    --global-accent-BackgroundColor: #d1e3ff;
+    --global-on-nuance-TextColor: #2553cf;
+    --global-secondary-IconColor: #556178;
+    --global-secondary-TextColor: #556178;
+    --global-focus-inset-BorderColor: #fff;
+    --global-ui-active-BackgroundColor: #15307226;
 
     /** Buttons **/
     --button-subtle-LabelColor: #000;
@@ -74,9 +81,16 @@
 
   div.dark {
     --background-color-bg-surface-01: #1b2230;
+    --global-primary-IconColor: #ffffff;
     --global-primary-TextColor: #ffffff;
     --global-disabled-TextColor: #252e3f;
     --global-error-TextColor: #fb6863;
+    --global-accent-BackgroundColor: #b5d1ff;
+    --global-on-nuance-TextColor: #041d7d;
+    --global-secondary-IconColor: #9fa9bd;
+    --global-secondary-TextColor: #9fa9bd;
+    --global-focus-inset-BorderColor: #181f2d;
+    --global-ui-active-BackgroundColor: #a5bdff26;
 
     /** Buttons **/
     --button-subtle-LabelColor: #fff;
