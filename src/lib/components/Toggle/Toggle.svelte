@@ -15,7 +15,7 @@
   class="toggle-container {size}"
   class:background
   class:disabled
-  class:woLabel={label === undefined || label === ''}
+  class:woLabel={label === undefined}
 >
   <input type="checkbox" class="toggle" bind:checked {disabled} on:change />
   <div class="toggle-element {size}" class:disabled />
