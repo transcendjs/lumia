@@ -6,6 +6,8 @@
   import Checkbox from '$lib/components/Checkbox/Checkbox.svelte'
   import Editbox from '$lib/components/Editbox/Editbox.svelte'
   import FormInput from '$lib/components/Editbox/FormInput.svelte'
+  import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
+  import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -76,6 +78,26 @@
           {#each checkboxes as checkbox}
             <Checkbox {...checkbox} />
           {/each}
+        </div>
+        <div class="row header">SwitcherBase</div>
+        <div class="row" style:max-width={'20rem'}>
+          <SwitcherBase name={'sw_' + theme} {icon} title={'Switcher label'} />
+          <SwitcherBase name={'sw_' + theme} title={'Switcher label'} />
+          <SwitcherBase
+            name={'sw_' + theme}
+            {icon}
+            title={'Switcher label'}
+            kind={'subtle'}
+            checked
+          />
+          <SwitcherBase name={'sw_' + theme} title={'Switcher label'} kind={'subtle'} />
+        </div>
+        <div class="row header">RadioButton</div>
+        <div class="row" style:max-width={'10rem'}>
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} error />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} checked disabled />
+          <RadioButton name={'rg1_' + theme} label={'Radio Label'} />
         </div>
         <div class="row header">Button</div>
         {#each sizes as size, i}
