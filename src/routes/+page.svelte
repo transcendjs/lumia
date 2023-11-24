@@ -8,6 +8,7 @@
   import Checkbox from '$lib/components/Checkbox/Checkbox.svelte'
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
+  import Toggle from '$lib/components/Toggle/Toggle.svelte'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -53,6 +54,21 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
+        <div class="row header">Toggle</div>
+        <div class="row" style:max-width={'23rem'} style:justify-content={'center'}>
+          <Toggle label={'Toggle label'} background />
+          <Toggle label={'Toggle label'} background disabled />
+          <Toggle label={'Toggle label'} background checked />
+          <Toggle label={'Toggle label'} background checked disabled />
+          <Toggle label={'Toggle label'} size={'small'} background />
+          <Toggle label={'Toggle label'} size={'small'} background disabled />
+          <Toggle label={'Toggle label'} />
+          <Toggle label={'Toggle label'} disabled />
+          <Toggle label={'Toggle label'} checked />
+          <Toggle label={'Toggle label'} checked disabled />
+          <Toggle label={'Toggle label'} size={'small'} checked />
+          <Toggle label={'Toggle label'} size={'small'} checked disabled />
+        </div>
         <div class="row header">SwitcherBase</div>
         <div class="row" style:max-width={'20rem'}>
           <SwitcherBase name={'sw_' + theme} {icon} title={'Switcher label'} />
