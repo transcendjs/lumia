@@ -9,6 +9,19 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    backgrounds: {
+      default: 'light',
+      values: [
+        {
+          name: 'light',
+          value: '#f0f2f5',
+        },
+        {
+          name: 'dark',
+          value: '#1b2230',
+        },
+      ],
     }
   },
   decorators: [(_, story) => ({ Component: ThemeDecorator, props: { context: story.globals } })]
