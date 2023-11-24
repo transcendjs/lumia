@@ -4,6 +4,6 @@
   export let context: any
 </script>
 
-<Theme theme={context?.backgrounds?.value === '#f0f2f5' ? 'light' : 'dark'}>
+<Theme theme={context?.backgrounds?.value === '#1b2230' ? 'dark' : 'light'}>
   <slot />
 </Theme>
