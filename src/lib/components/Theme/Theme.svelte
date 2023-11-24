@@ -70,6 +70,19 @@
     --button-tertiary-active-BackgroundColor: #17254726;
     --button-menu-active-BorderColor: #0f121a;
 
+    /** Editbox **/
+    --input-BackgroundColor: #1530720d;
+    --input-hover-BackgroundColor: #1530721a;
+    --input-BorderColor: #1530720d;
+    --input-TextColor: #0f121a;
+    --input-LabelColor: #0f121a;
+    --input-filled-LabelColor: #556178;
+    --input-PlaceholderColor: #556178;
+    --input-hover-PlaceholderColor: #0f121a;
+    --input-focus-PlaceholderColor: #8b97ad;
+    --input-HelperColor: #556178;
+    --input-error-BorderColor: #e34748;
+
     /** Checkboxes **/
     --selector-BackgroundColor: #1530720d;
     --selector-BorderColor: #0f121a;
@@ -105,6 +118,19 @@
     --button-tertiary-hover-BackgroundColor: #d1d5de1a;
     --button-tertiary-active-BackgroundColor: #d1d5de26;
     --button-menu-active-BorderColor: #d9dee6;
+
+    /** Editbox **/
+    --input-BackgroundColor: #a5bdff0d;
+    --input-hover-BackgroundColor: #a5bdff1a;
+    --input-BorderColor: #a5bdff0d;
+    --input-TextColor: #ffffff;
+    --input-LabelColor: #ffffff;
+    --input-filled-LabelColor: #8b97ad;
+    --input-PlaceholderColor: #8b97ad;
+    --input-hover-PlaceholderColor: #ffffff;
+    --input-focus-PlaceholderColor: #556178;
+    --input-HelperColor: #8b97ad;
+    --input-error-BorderColor: #fb6863;
 
     /** Checkboxes **/
     --selector-BackgroundColor: #a5bdff0d;
