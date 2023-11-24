@@ -26,9 +26,11 @@
   --spacing-2: 1rem;
   --spacing-2_5: 1.25rem;
   --spacing-3: 1.5rem;
+  --spacing-3_5: 1.75rem;
   --spacing-4: 2rem;
   --spacing-5: 2.5rem;
   --spacing-6: 3rem;
+  --spacing-6_5: 3.5rem;
   --spacing-7: 4rem;
   --spacing-8: 5rem;
   --spacing-9: 6rem;
@@ -46,14 +48,22 @@
   --large-focus-BorderRadius: 1.125rem;
 }
 
+.font-regular-12,
 .font-regular-14,
 .font-medium-14 {
   font-family: var(--font-family);
-  font-size: 0.875rem;
   font-style: normal;
   line-height: 1rem;
   color: var(--global-primary-TextColor);
 }
+.font-regular-12 {
+  font-size: 0.75rem;
+}
+.font-regular-14,
+.font-medium-14 {
+  font-size: 0.875rem;
+}
+.font-regular-12,
 .font-regular-14 {
   font-weight: 400;
 }

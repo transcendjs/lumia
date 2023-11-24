@@ -3,9 +3,21 @@
   import Button from '$lib/components/Button/Button.svelte'
   import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
   import ButtonMenu from '$lib/components/Button/ButtonMenu.svelte'
+  import Editbox from '$lib/components/Editbox/Editbox.svelte'
+  import FormInput from '$lib/components/Editbox/FormInput.svelte'
+  import Checkbox from '$lib/components/Checkbox/Checkbox.svelte'
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import type { IconId } from '$lib/icons.js'
+
+  interface CheckItems {
+    label?: string
+    checked?: boolean
+    disabled?: boolean
+    error?: boolean
+    indeterminate?: boolean
+    required?: boolean
+  }
 
   const icon = 'default' as IconId
   const title = 'Hi there'
@@ -18,6 +30,23 @@
   ]
   const sizes: Array<'large' | 'medium' | 'small'> = ['large', 'medium', 'small']
   let expanded: boolean[] = new Array(sizes.length * 3)
+  let checkboxes: Array<CheckItems> = [
+    {
+      label:
+        'Checkbox with long long long long long long long long long long long long long long Label and is requried',
+      checked: true,
+      required: true
+    },
+    { label: 'Checkbox label', checked: true },
+    { label: 'Checkbox label', checked: true, error: true },
+    { label: 'Checkbox label', checked: true, disabled: true },
+    { label: 'Checkbox label', checked: false },
+    { label: 'Checkbox label', checked: false, error: true },
+    { label: 'Checkbox label', checked: false, disabled: true },
+    { label: 'Checkbox label', indeterminate: true },
+    { label: 'Checkbox label', error: true, indeterminate: true },
+    { label: 'Checkbox label', disabled: true, indeterminate: true }
+  ]
 </script>
 
 <div class="themes">
@@ -43,6 +72,32 @@
           <RadioButton name={'rg1_' + theme} label={'Radio Label'} error />
           <RadioButton name={'rg1_' + theme} label={'Radio Label'} checked disabled />
           <RadioButton name={'rg1_' + theme} label={'Radio Label'} />
+        </div>
+        <div class="row header">Checkbox</div>
+        <div class="row" style:max-width={'25rem'}>
+          {#each checkboxes as checkbox}
+            <Checkbox {...checkbox} />
+          {/each}
+        </div>
+        <div class="row header">ValidatingEditbox</div>
+        <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
+          <FormInput
+            label={'Label'}
+            size={'large'}
+            messageText={'Helper text (Optional)'}
+            messageKind={'normal'}
+            limit={30}
+          />
+          <FormInput label={'Label'} messageText={'Error text'} messageKind={'error'} limit={20} />
+          <FormInput label={'Label'} messageText={'Helper text (Optional)'} disabled limit={20} />
+        </div>
+        <div class="row header">Editbox</div>
+        <div class="row" style:align-items={'start'} style:max-width={'40rem'}>
+          <Editbox label={'Label'} size={'large'} limit={30} />
+          <Editbox label={'Label'} error limit={20} />
+          <Editbox label={'Label'} error disabled limit={20} />
+          <Editbox label={'Label'} kind={'ghost'} size={'large'} />
+          <Editbox label={'Label'} kind={'ghost'} error />
         </div>
         <div class="row header">Button</div>
         {#each sizes as size, i}
