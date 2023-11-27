@@ -5,12 +5,12 @@
   //
 
   import type { IconId } from '$lib/icons.js'
-
+  import type { ButtonSize } from '$lib/types.ts'
   import ButtonBase from './ButtonBase.svelte'
 
   export let title: string | undefined = undefined
   export let kind: 'primary' | 'secondary' | 'tertiary' | 'negative' = 'secondary'
-  export let size: 'large' | 'medium' | 'small' = 'large'
+  export let size: ButtonSize = 'large'
   export let icon: IconId
   export let disabled: boolean = false
   export let loading: boolean = false

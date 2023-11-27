@@ -82,6 +82,7 @@
     --input-focus-PlaceholderColor: #8b97ad;
     --input-HelperColor: #556178;
     --input-error-BorderColor: #e34748;
+    --input-search-IconColor: #0F121A;
 
     /** Checkboxes **/
     --selector-BackgroundColor: #1530720d;
@@ -131,6 +132,7 @@
     --input-focus-PlaceholderColor: #556178;
     --input-HelperColor: #8b97ad;
     --input-error-BorderColor: #fb6863;
+    --input-search-IconColor: #FFFFFF;
 
     /** Checkboxes **/
     --selector-BackgroundColor: #a5bdff0d;
