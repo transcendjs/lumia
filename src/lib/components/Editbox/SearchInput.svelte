@@ -68,7 +68,7 @@
     background-color: var(--input-BackgroundColor);
     border-radius: var(--small-BorderRadius);
     box-shadow: inset 0 0 0 1px var(--input-BorderColor);
-    transition: max-width .2s;
+    transition: max-width 0.2s;
     cursor: text;
 
     .searchInput-button {
@@ -85,7 +85,7 @@
       border: none;
       border-radius: var(--small-BorderRadius);
       outline: none;
-      
+
       &.disabled {
         cursor: text;
       }
@@ -147,7 +147,7 @@
 
       &.cleanable {
         padding: 0 var(--spacing-0_5) 0 0;
-  
+
         input {
           margin-right: var(--spacing-1_5);
         }

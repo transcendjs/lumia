@@ -15,13 +15,13 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: '#f0f2f5',
+          value: '#f0f2f5'
         },
         {
           name: 'dark',
-          value: '#1b2230',
-        },
-      ],
+          value: '#1b2230'
+        }
+      ]
     }
   },
   decorators: [(_, story) => ({ Component: ThemeDecorator, props: { context: story.globals } })]
