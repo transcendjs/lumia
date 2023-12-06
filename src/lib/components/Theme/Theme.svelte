@@ -38,6 +38,7 @@
     --selector-disabled-IconColor: #8b97ad;
 
     --global-focus-BorderColor: #3364e2;
+    --global-focus-SelectionColor: #041d7d;
     --border-color-global-error-border-color: #fb6863;
 
     background-color: var(--background-color-bg-surface-01);
@@ -55,6 +56,10 @@
     --global-secondary-TextColor: #556178;
     --global-focus-inset-BorderColor: #fff;
     --global-ui-active-BackgroundColor: #15307226;
+
+    --global-surface-02-BackgroundColor: #ffffff;
+    --border-color-surfaces-surface-02-border-color: #252e3f; /* Dark */
+    --shadow-elevation-02: 0 1rem 1.5rem 0 rgba(21, 25, 35, 0.16); /* Dark */
 
     /** Buttons **/
     --button-subtle-LabelColor: #000;
@@ -82,6 +87,7 @@
     --input-focus-PlaceholderColor: #8b97ad;
     --input-HelperColor: #556178;
     --input-error-BorderColor: #e34748;
+    --input-search-IconColor: #0f121a;
 
     /** Checkboxes **/
     --selector-BackgroundColor: #1530720d;
@@ -104,6 +110,10 @@
     --global-secondary-TextColor: #9fa9bd;
     --global-focus-inset-BorderColor: #181f2d;
     --global-ui-active-BackgroundColor: #a5bdff26;
+
+    --global-surface-02-BackgroundColor: #1e2635;
+    --border-color-surfaces-surface-02-border-color: #252e3f;
+    --shadow-elevation-02: 0 1rem 1.5rem 0 rgba(21, 25, 35, 0.16);
 
     /** Buttons **/
     --button-subtle-LabelColor: #fff;
@@ -131,6 +141,7 @@
     --input-focus-PlaceholderColor: #556178;
     --input-HelperColor: #8b97ad;
     --input-error-BorderColor: #fb6863;
+    --input-search-IconColor: #ffffff;
 
     /** Checkboxes **/
     --selector-BackgroundColor: #a5bdff0d;

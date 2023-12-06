@@ -9,6 +9,7 @@
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import Toggle from '$lib/components/Toggle/Toggle.svelte'
+  import { DatePicker, NativeDatePicker } from '$lib/index.js'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -54,6 +55,17 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
+        <div class="row header">DatePicker</div>
+        <div class="row col" style:max-width={'15rem'}>
+          <!-- <DatePicker label={'DateTime'} value={new Date(2002, 0, 24)} /> -->
+          <DatePicker label={'DateTime'} />
+          <DatePicker label={'Date'} type={'date'} />
+          <DatePicker label={'Time'} type={'time'} />
+        </div>
+        <div class="row header">NativeDatePicker</div>
+        <div class="row" style:max-width={'23rem'}>
+          <NativeDatePicker label={'Label'} />
+        </div>
         <div class="row header">Toggle</div>
         <div class="row" style:max-width={'23rem'} style:justify-content={'center'}>
           <Toggle label={'Toggle label'} background />
@@ -230,8 +242,12 @@
       align-items: center;
       flex-wrap: wrap;
 
-      &:not(.group, .header) {
+      &:not(.group, .header, .col) {
         gap: 0.5rem;
+      }
+      &.col {
+        flex-direction: column;
+        align-items: start;
       }
       &.header,
       &.group {
