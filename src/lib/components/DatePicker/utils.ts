@@ -3,6 +3,46 @@
 // Licensed under the Eclipse Public License v2.0 (SPDX: EPL-2.0).
 //
 
+export function padDigits(num: number, zero: number = 2): string {
+  return num.toString().padStart(zero, '0')
+}
+
+const defaultDateTimeOptions: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit'
+}
+export function formatDateTime(
+  date: Date | null,
+  type: 'datetime' | 'date',
+  dateTimeOptions: Intl.DateTimeFormatOptions = defaultDateTimeOptions
+): string {
+  const tempDate = date ? date.toLocaleString('sv-SE', dateTimeOptions) : null
+  return tempDate ? (type === 'date' ? tempDate.split(' ')[0] : tempDate.replace(' ', 'T')) : ''
+}
+
+export function areDatesEqual(
+  firstDate: Date | null,
+  secondDate: Date | null,
+  type: 'datetime' | 'date'
+): boolean {
+  if (firstDate === null && secondDate === null) {
+    return true
+  } else if (firstDate === null || secondDate === null) {
+    return false
+  }
+  const dateEqual =
+    firstDate.getFullYear() === secondDate.getFullYear() &&
+    firstDate.getMonth() === secondDate.getMonth() &&
+    firstDate.getDate() === secondDate.getDate()
+  const timeEqual =
+    firstDate.getHours() === secondDate.getHours() &&
+    firstDate.getMinutes() === secondDate.getMinutes()
+  return type === 'date' ? dateEqual : dateEqual && timeEqual
+}
+
 export function daysInMonth(date: Date): number {
   return 33 - new Date(date.getFullYear(), date.getMonth(), 33).getDate()
 }

@@ -5,6 +5,7 @@
   //
 
   import { createEventDispatcher } from 'svelte'
+  import { padDigits } from './utils.js'
 
   export let id: string
   export let placeholder: string
@@ -81,7 +82,7 @@
   on:click|stopPropagation={handleFocus}
 >
   {#if value !== null}
-    {value.toString().padStart(maxlength, '0')}
+    {padDigits(value)}
   {:else}{placeholder}{/if}
 </div>
 

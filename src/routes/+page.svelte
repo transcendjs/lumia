@@ -9,7 +9,7 @@
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import Toggle from '$lib/components/Toggle/Toggle.svelte'
-  import { DatePicker, NativeDatePicker } from '$lib/index.js'
+  import { DateTimePicker, CustomDatePicker } from '$lib/index.js'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -55,16 +55,29 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
-        <div class="row header">DatePicker</div>
-        <div class="row col" style:max-width={'15rem'}>
-          <!-- <DatePicker label={'DateTime'} value={new Date(2002, 0, 24)} /> -->
-          <DatePicker label={'DateTime'} />
-          <DatePicker label={'Date'} type={'date'} />
-          <DatePicker label={'Time'} type={'time'} />
+        <div class="row header">DateTimePicker</div>
+        <div class="row col" style:max-width={'23rem'}>
+          <DateTimePicker label={'Label'} />
+          <DateTimePicker
+            label={'Date'}
+            value={new Date('December 19, 1982 23:45:30 GMT+07:00')}
+            type={'date'}
+            messageKind={'normal'}
+            messageText={'Helper text'}
+          />
+          <DateTimePicker
+            label={'Time'}
+            value={new Date('December 19, 1982 23:45:30 GMT-02:00')}
+            messageKind={'error'}
+            messageText={'Error label'}
+          />
+          <DateTimePicker label={'Birthday'} value={new Date(2002, 0, 26)} disabled />
         </div>
-        <div class="row header">NativeDatePicker</div>
-        <div class="row" style:max-width={'23rem'}>
-          <NativeDatePicker label={'Label'} />
+        <div class="row header">CustomDatePicker</div>
+        <div class="row col" style:max-width={'15rem'}>
+          <CustomDatePicker label={'DateTime'} value={new Date(1982, 12, 19, 23, 45)} />
+          <CustomDatePicker label={'Date'} type={'date'} />
+          <CustomDatePicker label={'Time'} type={'time'} />
         </div>
         <div class="row header">Toggle</div>
         <div class="row" style:max-width={'23rem'} style:justify-content={'center'}>
@@ -242,7 +255,7 @@
       align-items: center;
       flex-wrap: wrap;
 
-      &:not(.group, .header, .col) {
+      &:not(.group, .header) {
         gap: 0.5rem;
       }
       &.col {

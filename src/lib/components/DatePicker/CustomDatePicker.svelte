@@ -46,7 +46,7 @@
   $: currentDate = new Date(value ?? Date.now())
   $: updatedDate(currentDate)
   const updatedDate = (date: Date): void => {
-    if (!empty) fields.forEach((f) => (f.value = getValue(currentDate, f.id)))
+    if (!empty) fields.forEach((f) => (f.value = getValue(date, f.id)))
   }
 
   const jump = (prev: boolean): void => {
