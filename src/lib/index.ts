@@ -16,3 +16,4 @@ export { default as RadioButton } from './components/RadioButton/RadioButton.sve
 export { default as Toggle } from './components/Toggle/Toggle.svelte'
 export { default as DateTimePicker } from './components/DatePicker/DateTimePicker.svelte'
 export { default as CustomDatePicker } from './components/DatePicker/CustomDatePicker.svelte'
+export { default as MonthPopup } from './components/DatePicker/MonthPopup.svelte'

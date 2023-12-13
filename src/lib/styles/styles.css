@@ -72,3 +72,10 @@
 .font-medium-14 {
   font-weight: 500;
 }
+.heading-medium-20 {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}

@@ -9,7 +9,7 @@
   import RadioButton from '$lib/components/RadioButton/RadioButton.svelte'
   import SwitcherBase from '$lib/components/Switcher/SwitcherBase.svelte'
   import Toggle from '$lib/components/Toggle/Toggle.svelte'
-  import { DateTimePicker, CustomDatePicker } from '$lib/index.js'
+  import { DateTimePicker, CustomDatePicker, MonthPopup } from '$lib/index.js'
   import type { IconId } from '$lib/icons.js'
 
   interface CheckItems {
@@ -55,6 +55,12 @@
   {#each themes as theme}
     <Theme {theme}>
       <div class="column root">
+        <div class="row header">MonthPopup</div>
+        <div class="row">
+          <MonthPopup
+            showQuickSelection
+          />
+        </div>
         <div class="row header">DateTimePicker</div>
         <div class="row col" style:max-width={'23rem'}>
           <DateTimePicker label={'Label'} />

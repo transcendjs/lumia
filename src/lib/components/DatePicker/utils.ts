@@ -3,6 +3,10 @@
 // Licensed under the Eclipse Public License v2.0 (SPDX: EPL-2.0).
 //
 
+export const DAYS_IN_WEEK = 7
+export const MILLISECONDS_IN_DAY = 86400000
+export const MILLISECONDS_IN_WEEK = DAYS_IN_WEEK * MILLISECONDS_IN_DAY
+
 export function padDigits(num: number, zero: number = 2): string {
   return num.toString().padStart(zero, '0')
 }
@@ -103,4 +107,30 @@ export const getMinMaxValue = (
     default:
       return min ? 0 : 59
   }
+}
+
+export function getWeeksInMonth(year: number, month: number, mondayStart: boolean) {
+  const firstDayOfWeek = mondayStart ? 1 : 0
+  const firstOfMonth = new Date(year, month, 1)
+  const lastOfMonth = new Date(year, month + 1, 0)
+  const numberOfDaysInMonth = lastOfMonth.getDate()
+  const firstWeekDay = (firstOfMonth.getDay() - firstDayOfWeek + 7) % 7
+  return Math.ceil((firstWeekDay + numberOfDaysInMonth) / 7)
+}
+
+export function getMonthName(date: Date, option: 'narrow' | 'short' | 'long' | 'numeric' | '2-digit' = 'long'): string {
+  try {
+    const locale = new Intl.NumberFormat().resolvedOptions().locale
+    return new Intl.DateTimeFormat(locale, { month: option }).format(date)
+  } catch (err) {
+    console.error(err)
+    return ''
+  }
+}
+
+export function getWeekDayName (weekDay: Date, weekFormat: 'narrow' | 'short' | 'long' | undefined = 'short'): string {
+  const locale = new Intl.NumberFormat().resolvedOptions().locale
+  return new Intl.DateTimeFormat(locale, {
+    weekday: weekFormat
+  }).format(weekDay)
 }

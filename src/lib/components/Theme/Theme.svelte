@@ -54,11 +54,15 @@
     --global-on-nuance-TextColor: #2553cf;
     --global-secondary-IconColor: #556178;
     --global-secondary-TextColor: #556178;
+    --global-tertiary-TextColor: #909BB1;
     --global-focus-inset-BorderColor: #fff;
     --global-ui-active-BackgroundColor: #15307226;
+    --global-popover-BackgroundColor: #131925;
+    --global-popover-hover-BackgroundColor: #1F2737;
 
     --global-surface-02-BackgroundColor: #ffffff;
     --border-color-surfaces-surface-02-border-color: #252e3f; /* Dark */
+    --border-color-surfaces-surface-03-border-color: #A5BDFF0D; /* Dark */
     --shadow-elevation-02: 0 1rem 1.5rem 0 rgba(21, 25, 35, 0.16); /* Dark */
 
     /** Buttons **/
@@ -108,11 +112,15 @@
     --global-on-nuance-TextColor: #041d7d;
     --global-secondary-IconColor: #9fa9bd;
     --global-secondary-TextColor: #9fa9bd;
+    --global-tertiary-TextColor: #525F76;
     --global-focus-inset-BorderColor: #181f2d;
     --global-ui-active-BackgroundColor: #a5bdff26;
+    --global-popover-BackgroundColor: #262F40;
+    --global-popover-hover-BackgroundColor: #1F2737;
 
     --global-surface-02-BackgroundColor: #1e2635;
     --border-color-surfaces-surface-02-border-color: #252e3f;
+    --border-color-surfaces-surface-03-border-color: #A5BDFF0D;
     --shadow-elevation-02: 0 1rem 1.5rem 0 rgba(21, 25, 35, 0.16);
 
     /** Buttons **/
