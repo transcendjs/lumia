@@ -172,7 +172,7 @@
     }
     input:focus + .label,
     input:not(:placeholder-shown) + .label {
-      padding-top: var(--spacing-1_5);
+      padding-top: var(--spacing-1_25);
       font-size: 0.75rem;
       color: var(--input-filled-LabelColor);
     }
