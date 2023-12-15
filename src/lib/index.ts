@@ -5,8 +5,6 @@
  * Lumia UI Library.
  */
 
-export type { ButtonSize } from './types.ts'
-
 export { default as Theme } from './components/Theme/Theme.svelte'
 export { default as Button } from './components/Button/Button.svelte'
 export { default as ButtonIcon } from './components/Button/ButtonIcon.svelte'

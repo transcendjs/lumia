@@ -4,33 +4,20 @@
   // Licensed under the Eclipse Public License v2.0 (SPDX: EPL-2.0).
   //
 
-  import type { IconId } from '$lib/icons.js'
   import SearchSVG from '$lib/icons/search.svg?raw'
-  import ButtonIcon from '$lib/components/Button/ButtonIcon.svelte'
+  import CrossSVG from '$lib/icons/cross.svg?raw'
 
   export let value: string | undefined = undefined
   export let placeholder: string
   export let collapsed: boolean = false
 
-  let allowedCollapsing: boolean = collapsed
   let input: HTMLInputElement
-  let label: HTMLLabelElement
-  let crossIcon: IconId = 'cross' as IconId
-  $: cleanable = value !== undefined && value !== ''
 </script>
 
-<label bind:this={label} class="searchInput-wrapper" class:collapsed class:cleanable>
-  <button
-    class="searchInput-button"
-    class:disabled={!allowedCollapsing}
-    on:click|preventDefault={() => {
-      if (allowedCollapsing) collapsed = !collapsed
-      if (collapsed) label.focus()
-      else input.focus()
-    }}
-  >
+<label class="searchInput-wrapper" class:collapsed class:filled={value && value !== ''}>
+  <div class="searchInput-icon">
     <div>{@html SearchSVG}</div>
-  </button>
+  </div>
   <input
     bind:this={input}
     type="text"
@@ -39,30 +26,25 @@
     {placeholder}
     autocomplete="off"
     spellcheck="false"
-    on:blur
     on:change
-    on:keyup
     on:input
   />
-  {#if cleanable && !collapsed}
-    <ButtonIcon
-      icon={crossIcon}
-      kind={'tertiary'}
-      size={'extra-small'}
-      on:click={(event) => {
-        event.preventDefault()
-        value = ''
-        input.focus()
-      }}
-    />
-  {/if}
+  <button
+    class="searchInput-button"
+    on:click={() => {
+      value = ''
+      input.focus()
+    }}
+  ><div>{@html CrossSVG}</div></button>
 </label>
 
 <style lang="scss">
   .searchInput-wrapper {
     display: flex;
+    justify-content: stretch;
     align-items: center;
     align-self: stretch;
+    padding: 0 var(--spacing-0_5) 0 0;
     height: var(--spacing-4);
     min-width: var(--spacing-4);
     background-color: var(--input-BackgroundColor);
@@ -71,40 +53,59 @@
     transition: max-width 0.2s;
     cursor: text;
 
+    .searchInput-icon,
     .searchInput-button {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-shrink: 0;
-      margin: 0 var(--spacing-0_5) 0 0;
       padding: 0;
-      width: var(--spacing-4);
-      height: var(--spacing-4);
-      fill: var(--input-search-IconColor);
       background-color: transparent;
       border: none;
-      border-radius: var(--small-BorderRadius);
-      outline: none;
-
-      &.disabled {
-        cursor: text;
-      }
-      &:not(.disabled) {
-        cursor: pointer;
-      }
-      &:active,
-      &:focus {
-        background-color: transparent;
-      }
 
       div {
         width: var(--spacing-2);
         height: var(--spacing-2);
       }
     }
+    .searchInput-icon {
+      margin: 0 var(--spacing-0_5) 0 0;
+      width: var(--spacing-4);
+      height: var(--spacing-4);
+      fill: var(--input-search-IconColor);
+      border-radius: var(--small-BorderRadius);
+      outline: none;
+      cursor: text;
+
+      &:active,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+    .searchInput-button {
+      visibility: hidden;
+      width: var(--spacing-3);
+      height: var(--spacing-3);
+      fill: var(--global-primary-TextColor);
+      border-radius: var(--extra-small-BorderRadius);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--button-tertiary-hover-BackgroundColor);
+      }
+      &:active {
+        background-color: var(--button-tertiary-active-BackgroundColor);
+        border-color: var(--button-menu-active-BorderColor);
+      }
+      &:focus {
+        outline: 2px solid var(--global-focus-BorderColor);
+        outline-offset: 2px;
+      }
+    }
 
     input {
       margin: 0;
+      margin-right: var(--spacing-1_5);
       padding: 0;
       width: 100%;
       height: 100%;
@@ -118,6 +119,9 @@
       &::placeholder {
         color: var(--input-PlaceholderColor);
       }
+      &:not(:placeholder-shown) + .searchInput-button {
+        visibility: visible;
+      }
     }
 
     &:hover {
@@ -129,6 +133,8 @@
     }
     &:active,
     &:focus-within {
+      padding: 0 var(--spacing-0_5) 0 0;
+      max-width: 100%;
       background-color: var(--input-BackgroundColor);
       outline: 2px solid var(--global-focus-BorderColor);
       outline-offset: 2px;
@@ -138,22 +144,15 @@
       }
     }
 
-    &.collapsed {
+    &.collapsed:not(:focus-within, :active, .filled) {
       padding: 0;
       max-width: var(--spacing-4);
-    }
-    &:not(.collapsed) {
-      max-width: 100%;
 
-      &.cleanable {
-        padding: 0 var(--spacing-0_5) 0 0;
-
-        input {
-          margin-right: var(--spacing-1_5);
-        }
+      .searchInput-icon {
+        cursor: pointer;
       }
-      &:not(.cleanable) {
-        padding: 0 var(--spacing-5) 0 0;
+      input:not(:placeholder-shown) + .searchInput-button {
+        visibility: hidden;
       }
     }
   }

@@ -5,14 +5,13 @@
   //
 
   import type { IconId } from '$lib/icons.js'
-  import type { ButtonSize } from '$lib/types.ts'
   import Icon from '$lib/components/Icon/Icon.svelte'
   import LoadingSVG from '$lib/icons/loading.svg?raw'
 
   export let title: string | undefined = undefined
   export let icon: IconId | undefined = undefined
   export let kind: 'primary' | 'secondary' | 'tertiary' | 'negative'
-  export let size: ButtonSize
+  export let size: 'large' | 'medium' | 'small'
   export let disabled: boolean = false
   export let loading: boolean = false
   export let pressed: boolean = false
@@ -97,17 +96,6 @@
       }
       &.type-button-icon {
         width: var(--spacing-4);
-      }
-    }
-    &.extra-small {
-      height: var(--spacing-3);
-      border-radius: var(--extra-small-BorderRadius);
-
-      &.type-button {
-        padding: 0 var(--spacing-0_5);
-      }
-      &.type-button-icon {
-        width: var(--spacing-3);
       }
     }
 
