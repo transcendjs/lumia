@@ -35,7 +35,9 @@
       value = ''
       input.focus()
     }}
-  ><div>{@html CrossSVG}</div></button>
+  >
+    <div>{@html CrossSVG}</div>
+  </button>
 </label>
 
 <style lang="scss">
