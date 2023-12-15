@@ -5,7 +5,6 @@
   //
 
   import type { IconId } from '$lib/icons.js'
-
   import ButtonBase from './ButtonBase.svelte'
 
   export let kind: 'primary' | 'secondary' | 'tertiary' | 'negative' = 'secondary'
@@ -15,4 +14,4 @@
   export let loading: boolean = false
 </script>
 
-<ButtonBase type={'type-button-icon'} {kind} {size} {icon} {disabled} {loading} />
+<ButtonBase type={'type-button-icon'} {kind} {size} {icon} {disabled} {loading} on:click />

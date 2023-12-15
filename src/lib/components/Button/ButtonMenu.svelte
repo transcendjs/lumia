@@ -5,7 +5,6 @@
   //
 
   import type { IconId } from '$lib/icons.js'
-
   import ButtonBase from './ButtonBase.svelte'
 
   export let title: string | undefined = undefined

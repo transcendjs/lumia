@@ -45,6 +45,10 @@
     border: 1px;
     border-style: solid;
 
+    &:not(:disabled, .loading) {
+      cursor: pointer;
+    }
+
     .icon {
       width: var(--spacing-2_5);
       height: var(--spacing-2_5);
